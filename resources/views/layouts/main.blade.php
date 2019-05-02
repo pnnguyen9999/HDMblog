@@ -72,7 +72,7 @@
 						<div class="col-xl-12 col-lg-12 col-sm-3 col-3" style="padding: 5px;">
 							<a href="/admin" class="waves-effect waves-block waves-light" style="width:100px;height: 100px;padding:10px;border: #7bc6cc dashed 3px;float: right;color:#ffffff;justify-content: center;align-items: center;text-decoration: none;background-color: #37474F">
 								<i class="fas fa-atom txt-grad2" style="font-size: 32pt;"></i><br>
-								<h6 style="padding-top:10px">ahjhi ?</h6>
+								<h6 style="padding-top:10px">Admin</h6>
 							</a>
 						</div>
 					</div>
@@ -81,7 +81,7 @@
 			<div class="col-xl-4 col-lg-7 col-sm-10" style="width: 620px;margin: 0 auto;position: relative;" ><!-- blue-grey darken-2 -->
 				<div class="card blue-grey darken-2" style="display: block;overflow: auto;">
 					<div class="card-image waves-effect waves-block waves-light">
-						<img class="img1" src="{{ URL::asset('sources/images/background.jpg') }}">
+						<img class="img1 activator" src="{{ URL::asset('sources/images/background.jpg') }}">
 					</div>
 					<div class="card-title card-content" style="text-align: center;">
 						<a class="hdmmainText txt-grad2" style="letter-spacing: 0px;color: #ffffff;font-size: 30pt" href="#"><b>HDM Confessions</b></a><br>
@@ -124,6 +124,29 @@
 				<div style="text-align: center; padding: 30px;">
 					<p><i class="txt-grad2" style="font-size: 10pt">HDM Confessions 2019 - Hương Đầu Mùa</i></p>
 					<p><i class="txt-grad2" style="font-size: 10pt">THPT Nguyễn Huệ - Huế .</i></p>
+				</div>
+				<div class="card-reveal black-text">
+					<span class="card-title grey-text text-darken-3"><b>HDM Content Tool & HDM Forum PROJECT</b><i class="material-icons right">close</i></span>
+					<p>Here is some more information about this project, We hope u enjoy it !</p>
+					<div style="text-align: left;">
+						<h6>Home: HDM Confessions</h6>
+						<h6>Launch: 04/25/2019</h6>
+						<h6>Domain Signed: 04/30/2019</h6>
+						<h6>Framework: Laravel with Love</h6>
+						<HR>
+						<h6>Maker: <kbd>G L I X Y L U S Team Dev</kbd> :</h6>
+						<kbd>Main UI UX & Frontend coder: 99-A4&B3</kbd><br>
+						<kbd>Main Backend coder: 99-B5</kbd><br>
+						<HR>
+						<h6>Sponsor: <kbd>H D M Confessions</kbd> :</h6>
+						<kbd>Admin: 99-A4&B3</kbd><br>
+						<kbd>Admin: 2K-B4</kbd><br>
+						<kbd>Admin: 2K1-A1</kbd><br>
+						<kbd>Admin: 2K2-B8</kbd><br>
+						<kbd>Admin: 2K2-A4</kbd><br>
+						<kbd>Admin: 2K3-B1</kbd><br>
+						<kbd>Photograph: 2K1-A4</kbd><br>
+					</div>
 				</div>
 				<!-- insert -->
 			</div>

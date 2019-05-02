@@ -8,6 +8,7 @@
 	<div class="row" style="text-align: left;padding: 10px;">
 		<img class="" src="{{$avatar}}" style="border: #CFD8DC solid 3px;border-radius: 50px;float: left;" width="70px" height="70px">
 		<div style="padding: 2px;padding-left: 10px">
+			
 			<h4 style="">{{$user['first_name'].' '.$user['last_name']}}</h4>
 			<h5 style="color: #C8E6C9">{{$user['email']}}</h5>
 			<div style="padding: 5px">
@@ -34,7 +35,7 @@
 		<input class="btn black" type="submit" id="countText" name="count-checked-checkboxes" value="0" style="color: #ffffff">
 		<button type=submit class="waves-effect waves-light btn grey darken-4" id="acceptAll">
 			<i style="font-size:15px" class="fas fa-check txt-grad1"></i>
-			<b class="txt-grad2"> Duyệt các mục đã chọn</b>
+			<b class="txt-grad2"> Duyệt tất cả</b>
 		</button>
 	</h6>
 </div>
