@@ -17,7 +17,7 @@ class savecfsController extends Controller
         $date = date('m/d/Y h:i:s a', time());
         $data = array('id' => null,'date' => $date,'noidung' => $noidung );
         DB::table('cfs')->insert($data);
-        return view('thankyouPage')->with('posts', $noidung);;
+        return view('thankyouPage')->with('posts', $noidung);
     }
     public function index()
     {
