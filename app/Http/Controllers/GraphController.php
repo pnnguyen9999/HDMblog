@@ -22,15 +22,20 @@ class GraphController extends Controller
 
 	public function retrieveUserProfile(){
 		try {
-
+			$page_id = '1177029442331188';
 			$params = "first_name,last_name,picture,email,birthday,age_range,gender";
 
 			$user = $this->api->get('/me?fields='.$params)->getGraphUser();
+			//$response = $this->api->get('/page-id/feed',token);
 			//echo 'Name: ' . $user['picture'];
-			$picture = json_decode($user['picture'], true);
-			//echo $picture['url'];
+			
+			$post = $this->api->get('/' . $page_id . '/feed', $this->getPageAccessToken($page_id));
+			//$post = $post->getGraphNode()->asArray();
+			// $noidung = json_decode($user['picture'], true);
+			// echo $picture['url'];
 
-			dd($user);
+			dd($post);
+			//dd($user);
 
 		} catch (FacebookSDKException $e) {
 

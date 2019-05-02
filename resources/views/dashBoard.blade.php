@@ -27,9 +27,21 @@
 </div>
 <hr>
 <h6><b>CÁC BẠN VUI LÒNG DUYỆT TỪ TRÊN XUỐNG ( ↓ ) NHÉ !</b></h6>
+<div class="row">
+<div class="col-xl-4 col-lg-7 col-sm-10 card" style="position: fixed;z-index:100; bottom: 0px;display:inline-block;height: 55px;margin-bottom: 0px;background-color: #90CAF9;text-align: left;padding: 10px; color: #000000">
+	<h6>
+		<b>SỐ LƯỢNG GỘP: </b>
+		<input class="btn black" type="submit" id="countText" name="count-checked-checkboxes" value="0" style="color: #ffffff">
+		<button type=submit class="waves-effect waves-light btn grey darken-4" id="acceptAll">
+			<i style="font-size:15px" class="fas fa-check txt-grad1"></i>
+			<b class="txt-grad2"> Duyệt các mục đã chọn</b>
+		</button>
+	</h6>
+</div>
+</div>
 <div style="padding: 10px;text-align: left">
 	@foreach($data as $key => $data)
-	<form class="col-sm-12" action="/page/id={{$data->id}}" method="get" style="padding: 10px">
+	<form class="col-sm-12" action="/page/id={{$data->id}}" method="get" style="padding: 10px" id="form1">
 		<div style="width: 100%;padding: 10px;border: #e0e0e0 dashed 2px">
 			<div class="row" style="width: 100%;padding: 5px">
 				<div class="col-sm-6" style="float: left">
@@ -38,7 +50,15 @@
 					<h6><b>User: ẩn danh</b></h6>
 				</div>
 				<div class="col-sm-6" style="padding-right:0px;float: right;text-align: right;border-right: #99ccff dotted 12px">
-					<div style="padding: 5px"><button type=submit class="waves-effect waves-light btn blue-grey darken-4"><i style="font-size:15px" class="fas fa-check txt-grad1"></i><b class="txt-grad2"> Duyệt cfs này</b></button></div>
+					
+					<div style="padding: 5px">
+						<label style="padding-right: 5px">
+							<input type="checkbox" class="filled-in checkbox-blue-grey" />
+							<span>GỘP CHUNG</span>
+						</label>
+						<button type=submit class="waves-effect waves-light btn blue-grey darken-4 accept">
+						<i style="font-size:15px" class="fas fa-check txt-grad1"></i><b class="txt-grad2"> Duyệt cfs này</b></button>
+					</div>
 					<div style="padding: 5px"><button type=submit class="waves-effect waves-light btn" style="background-color: #FF9800"><i style="font-size:15px" class="fas fa-trash-alt" style="color: black"></i><b style="color: black"> Loại bỏ</b></button></div>
 				</div><br>
 			</div>

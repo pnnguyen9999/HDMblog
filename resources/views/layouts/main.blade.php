@@ -135,7 +135,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		$("#acceptAll").hide();
 		$('select').formSelect();
 		$('textarea#textarea2').characterCounter();
+		var $checkboxes = $('#form1 input[type="checkbox"]');
+
+		$checkboxes.change(function(){
+			var countCheckedCheckboxes = $checkboxes.filter(':checked').length;        
+        	$('#countText').val(countCheckedCheckboxes);
+        	if (countCheckedCheckboxes != 0) {
+        		$("button.accept").attr("disabled", true);
+        		$("#acceptAll").show();
+        	} else {
+        		$("button.accept").attr("disabled", false);
+        		$("#acceptAll").hide();
+        	}
+    	});
 	});
 </script>
