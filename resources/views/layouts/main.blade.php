@@ -46,7 +46,7 @@
 	<!-- PART1 -->
 	<div class="col-sm-12">
 		<div class="row">
-			<div class="col-xl-3 col-lg-1">
+			<div class="col-xl-2 col-lg-1">
 			</div>
 			<div class="col-xl-1 col-lg-2 col-sm-12" style="padding: 15px">
 				<div style="padding:10px">
@@ -78,7 +78,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-xl-4 col-lg-7 col-sm-10" style="width: 620px;margin: 0 auto;position: relative;" ><!-- blue-grey darken-2 -->
+			<div class="mainContent" style="width: 620px;margin: 0 auto;position: relative;" ><!-- blue-grey darken-2 -->
 				<div class="card blue-grey darken-2" style="display: block;overflow: auto;">
 					<div class="card-image waves-effect waves-block waves-light">
 						<img class="img1 activator" src="{{ URL::asset('sources/images/background.jpg') }}">
@@ -92,6 +92,7 @@
 
 					<div class="mobilePanel col-sm-12" style="display: none">
 						<hr>
+						<h6><kbd>này là menu nè :3</kbd></h6>
 						<div class="row" style="padding: 5px;">
 							<a href="/" class="col-3 waves-effect waves-block waves-light" style="width:35px;height: 35px;border: #7bc6cc dashed 1px;color:#ffffff;text-decoration: none;background-color: #263238;display: flex;justify-content: center;align-items: center">
 								<i class="fab fa-fort-awesome txt-grad2" style="font-size: 15pt;"></i>
@@ -151,7 +152,7 @@
 				<!-- insert -->
 			</div>
 		</div>
-		<div class="col-xl-4 col-lg-2" style="margin: 0 auto;position: relative;" >
+		<div class="col-xl-3 col-lg-2" style="margin: 0 auto;position: relative;" >
 		</div>
 	</div>
 </div>
