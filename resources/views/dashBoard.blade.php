@@ -3,9 +3,9 @@
 @section('mainpage-load')
 <div style="overflow-x: hidden">
 <hr>
-<div style="padding-left: 40px">
-	<h6 style="text-align: left;color: #BBDEFB">- đây ↓ là chân dung người đang duyệt cfs nè :v -</h6>
-	<div class="row" style="text-align: left;padding: 10px;">
+<div class="dashboardUser">
+	<h6 style="text-align: left;color: #BBDEFB">- ↓ Administrator -</h6>
+	<div class="row " style="text-align: left;padding: 10px;">
 		<img class="" src="{{$avatar}}" style="border: #CFD8DC solid 3px;border-radius: 50px;float: left;" width="70px" height="70px">
 		<div style="padding: 2px;padding-left: 10px">
 			
@@ -27,11 +27,11 @@
 	</div>
 </div>
 <hr>
-<h6><b>CÁC BẠN VUI LÒNG DUYỆT TỪ TRÊN XUỐNG ( ↓ ) NHÉ !</b></h6>
+<h6 style="padding:10px;padding-bottom: 0px"><b>CÁC BẠN VUI LÒNG DUYỆT TỪ TRÊN XUỐNG ( ↓ ) NHÉ !</b></h6>
 <div class="row">
-<div class="col-xl-4 col-lg-7 col-sm-10 card" style="position: fixed;z-index:100; bottom: 0px;display:inline-block;height: 55px;margin-bottom: 0px;background-color: #90CAF9;text-align: left;padding: 10px; color: #000000">
+<div class="mainContent card" style="position: fixed;z-index:100; bottom: 0px;display:inline-block;height: 55px;margin-bottom: 0px;background-color: rgba(192,192,192,0.85);text-align: left;padding-left: 20px;padding-top: 10px; color: #000000;margin-left: 14px">
 	<h6>
-		<b>SỐ LƯỢNG GỘP: </b>
+		<b>GỘP: </b>
 		<input class="btn black" type="submit" id="countText" name="count-checked-checkboxes" value="0" style="color: #ffffff">
 		<button type=submit class="waves-effect waves-light btn grey darken-4" id="acceptAll">
 			<i style="font-size:15px" class="fas fa-check txt-grad1"></i>
@@ -45,12 +45,12 @@
 	<form class="col-sm-12" action="/page/id={{$data->id}}" method="get" style="padding: 10px" id="form1">
 		<div style="width: 100%;padding: 10px;border: #e0e0e0 dashed 2px">
 			<div class="row" style="width: 100%;padding: 5px">
-				<div class="col-sm-6" style="float: left">
+				<div class="col-sm-6" style="float: left;">
 					<h5 class="txt-grad2"><b>Chưa được duyệt !</b></h5><br>
 					<h6><b>{{$data->date}}</b></h6>
 					<h6><b>User: ẩn danh</b></h6>
 				</div>
-				<div class="col-sm-6" style="padding-right:0px;float: right;text-align: right;border-right: #99ccff dotted 12px">
+				<div class="col-sm-6" style="padding-right:0px;float: right;text-align: right;border-right: #99ccff solid 5px">
 					
 					<div style="padding: 5px">
 						<label style="padding-right: 5px">
