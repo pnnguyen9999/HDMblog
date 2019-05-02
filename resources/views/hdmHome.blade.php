@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('mainpage-load')
+<hr>
 <div style="padding: 30px;padding-top:0px;text-align: left;">
 	<blockquote style="border-left-color: #7bc6cc">
 		<b style="font-size:14pt;color: #ef9a9a"><img src="/funny/star3.gif" width="25px" height="25px"> QUY ĐỊNH :</b><br>
@@ -26,10 +27,6 @@
 		</button>
 	</div>
 </form>
-<div class="card-reveal black-text">
-	<span class="card-title grey-text text-darken-3">Card Title<i class="material-icons right">close</i></span>
-	<p>Here is some more information about this product that is only revealed once clicked on.</p>
-</div>
 @stop
 
 @section('css')
