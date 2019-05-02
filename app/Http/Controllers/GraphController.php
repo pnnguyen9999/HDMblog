@@ -63,7 +63,7 @@ class GraphController extends Controller
 		} catch (FacebookSDKException $e) {
         dd($e); // handle exception
     	}
-    	
+
 	}
 	public function publishToPage($id,Request $request){
 		$data = DB::table('cfs')->get();

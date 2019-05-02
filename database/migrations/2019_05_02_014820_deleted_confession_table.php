@@ -17,6 +17,8 @@ class DeletedConfessionTable extends Migration
           $table->increments('id');
           $table->integer('confession_id')->unsigned();
           $table->foreign('confession_id')->references('id')->on('confession');
+          $table->integer('delete_by')->unsigned();
+          $table->foreign('delete_by')->references('id')->on('users');
           $table->timestamps();
         });
     }

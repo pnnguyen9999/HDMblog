@@ -17,6 +17,8 @@ class AcceptedConfession extends Migration
           $table->increments('id');
           $table->integer('confession_id')->unsigned();
           $table->foreign('confession_id')->references('id')->on('confession');
+          $table->integer('accept_by')->unsigned();
+          $table->foreign('accept_by')->references('id')->on('users');
           $table->integer('order');
           $table->timestamps();
       });
