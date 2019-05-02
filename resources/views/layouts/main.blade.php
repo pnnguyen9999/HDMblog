@@ -37,6 +37,9 @@
 		box-shadow: 0 1px 0 0 #9E9E9E !important;
 	}
 </style>
+
+@yield('css')
+
 <title>HDM Confessions</title>
 </head>
 <body id="grad4" style="color: #ffffff;text-align: center;">
@@ -49,7 +52,7 @@
 				<div style="padding:10px">
 					<div class="row desktopPanel" style="">
 						<div class="col-xl-12 col-lg-12 col-sm-3 col-3" style="padding: 5px;">
-							<a href="/" class="waves-effect waves-block waves-light" style="width:100px;height: 100px;padding:10px;border: #7bc6cc dashed 3px;float: right;color:#ffffff;justify-content: center;align-items: center;text-decoration: none;background-color: #263238">
+							<a href="{{ route('home') }}" class="waves-effect waves-block waves-light" style="width:100px;height: 100px;padding:10px;border: #7bc6cc dashed 3px;float: right;color:#ffffff;justify-content: center;align-items: center;text-decoration: none;background-color: #263238">
 								<i class="fab fa-fort-awesome txt-grad2" style="font-size: 32pt;"></i><br>
 								<h6 style="padding-top:10px">Trang chủ</h6>
 							</a>
@@ -78,7 +81,7 @@
 			<div class="col-xl-4 col-lg-7 col-sm-10" style="width: 620px;margin: 0 auto;position: relative;" ><!-- blue-grey darken-2 -->
 				<div class="card blue-grey darken-2" style="display: block;overflow: auto;">
 					<div class="card-image waves-effect waves-block waves-light">
-						<img class="img1" src="https://i.imgur.com/kLSiSR6.jpg">
+						<img class="img1" src="{{ URL::asset('sources/images/background.jpg') }}">
 					</div>
 					<div class="card-title card-content" style="text-align: center;">
 						<a class="hdmmainText txt-grad2" style="letter-spacing: 0px;color: #ffffff;font-size: 30pt" href="#"><b>HDM Confessions</b></a><br>
@@ -129,8 +132,7 @@
 		</div>
 	</div>
 </div>
-</body>
-</html>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script type="text/javascript">
@@ -153,3 +155,7 @@
     	});
 	});
 </script>
+@yield('js')
+
+</body>
+</html>

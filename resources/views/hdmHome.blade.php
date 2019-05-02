@@ -12,7 +12,7 @@
 		<b>5.</b> Liên quan đến chính trị, xuyên tạc, vv...
 	</blockquote>
 </div>
-<form class="col s12" action="/insert" method="post">
+<form class="col s12" action="{{ route('add_confession') }}" method="post">
 	{{ csrf_field() }}
 	<div class="row" style="padding:10px">
 		<div class="input-field col s12">
@@ -21,7 +21,7 @@
 		</div>
 	</div>
 	<div style="text-align: center;padding: 30px" class="">
-		<button type=submit class="waves-effect waves-light btn blue-grey darken-4">
+		<button type=submit class="waves-effect waves-light btn blue-grey darken-4" id="submit-confession">
 			<i style="font-size:15px" class="fas fa-paper-plane txt-grad1"></i><b class="txt-grad1"> Gởi Confession</b>
 		</button>
 	</div>
@@ -31,3 +31,10 @@
 	<p>Here is some more information about this product that is only revealed once clicked on.</p>
 </div>
 @stop
+
+@section('css')
+@endsection
+
+@section('js')
+<script type="text/javascript" src="{{ URL::asset('js/home.js') }}"></script>
+@endsection
