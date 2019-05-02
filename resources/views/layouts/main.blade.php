@@ -78,7 +78,7 @@
 			<div class="col-xl-4 col-lg-7 col-sm-10" style="width: 620px;margin: 0 auto;position: relative;" ><!-- blue-grey darken-2 -->
 				<div class="card blue-grey darken-2" style="display: block;overflow: auto;">
 					<div class="card-image waves-effect waves-block waves-light">
-						<img class="img1" src="https://i.imgur.com/kLSiSR6.jpg">
+						<img class="img1" src="{{ URL::asset('sources/images/background.jpg') }}">
 					</div>
 					<div class="card-title card-content" style="text-align: center;">
 						<a class="hdmmainText txt-grad2" style="letter-spacing: 0px;color: #ffffff;font-size: 30pt" href="#"><b>HDM Confessions</b></a><br>
