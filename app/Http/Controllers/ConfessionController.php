@@ -21,7 +21,7 @@ class ConfessionController extends Controller
       $confession->save();
 
       session()->put('success','Added');
-      return redirect()->back();
+      return view('thankyouPage',['posts' => $confession->content]);
     }
 
     public function approve($confession_id){
