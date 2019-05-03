@@ -19,6 +19,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\ConfessionController' => $baseDir . '/app/Http/Controllers/ConfessionController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\CustomLoginController' => $baseDir . '/app/Http/Controllers/CustomLoginController.php',
     'App\\Http\\Controllers\\GraphController' => $baseDir . '/app/Http/Controllers/GraphController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\HomePageController' => $baseDir . '/app/Http/Controllers/HomePageController.php',
