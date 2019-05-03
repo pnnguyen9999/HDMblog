@@ -13,7 +13,7 @@
 Route::get('/','HomePageController@index')->name('home');
 
 Route::get('/t', function () {
-    return view('thankyouPage');
+    return view('processtoDashboard');
 });
 
 //Route::post('/insert','savecfsController@insert');
