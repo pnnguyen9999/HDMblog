@@ -136,6 +136,7 @@
 						<kbd>Admin: 2K2-A4</kbd><br>
 						<kbd>Admin: 2K3-B1</kbd><br>
 						<kbd>Photograph: 2K1-A4</kbd><br>
+						<HR>
 					</div>
 				</div>
 				<!-- insert -->

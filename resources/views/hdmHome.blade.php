@@ -17,7 +17,7 @@
 	{{ csrf_field() }}
 	<div class="row" style="padding:10px">
 		<div class="input-field col s12">
-			<textarea id="textarea2" class="materialize-textarea" style="color: #EEEEEE" data-length="" required="" aria-required="true" name="noidung"></textarea>
+			<textarea id="textarea2" class="materialize-textarea" style="color: #EEEEEE" data-length="" minlength="150" required="" aria-required="true" name="noidung"></textarea>
 			<label for="textarea2">Nhập cfs của bạn vào đây ^^ :</label>
 		</div>
 	</div>
