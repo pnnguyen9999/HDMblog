@@ -2,18 +2,18 @@
 
 @section('mainpage-load')
 <div style="overflow-x: hidden">
+<h6 class="txt-grad2" style="padding-bottom: 10px;font-family: 'Sofia', cursive;font-size: 15pt"><b>trang duyet cfs</b></h6>
 <hr>
 <div class="dashboardUser">
 	<h6 style="text-align: left;color: #BBDEFB">- ↓ Administrator -</h6>
 	<div class="row " style="text-align: left;padding: 10px;">
 		<img class="" src="{{$avatar}}" style="border: #CFD8DC solid 3px;border-radius: 50px;float: left;" width="70px" height="70px">
 		<div style="padding: 2px;padding-left: 10px">
-
 			<h4 style="">{{$profile['first_name'].' '.$profile['last_name']}}</h4>
 			<h5 style="color: #C8E6C9">{{$profile['email']}}</h5>
-			<div style="padding: 5px">
-				<a href="/logout" class="waves-effect waves-light btn blue-grey darken-4"><b class="txt-grad2">đăng xuất</b></a>
-			</div>
+			<a href="/logout" class="waves-effect waves-light btn grey lighten-5">
+				<i style="font-size:15px" class="fas fa-sign-out-alt txt-grad1"></i><b class="txt-grad1"> đăng xuất</b>
+			</a>
 		</div>
 	</div>
 </div>
@@ -26,6 +26,7 @@
 		@endforeach
 	</div>
 </div>
+
 <hr>
 <h6 style="padding:10px;padding-bottom: 0px"><b>CÁC BẠN VUI LÒNG DUYỆT TỪ TRÊN XUỐNG ( ↓ ) NHÉ !</b></h6>
 <div class="row">

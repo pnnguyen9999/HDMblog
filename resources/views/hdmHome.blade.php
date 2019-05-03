@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('mainpage-load')
+<h6 class="txt-grad2" style="padding-bottom: 10px;font-family: 'Sofia', cursive;font-size: 15pt"><b>trang dang cfs</b></h6>
 <hr>
 <div style="padding: 30px;padding-top:0px;text-align: left;">
 	<blockquote style="border-left-color: #7bc6cc">
@@ -17,8 +18,9 @@
 	{{ csrf_field() }}
 	<div class="row" style="padding:10px">
 		<div class="input-field col s12">
-			<textarea id="textarea2" class="materialize-textarea" style="color: #EEEEEE" data-length="" required="" aria-required="true" name="noidung"></textarea>
+			<textarea id="textarea2" class="materialize-textarea" style="color: #EEEEEE" data-length="" minlength="1" required="" aria-required="true" name="noidung"></textarea>
 			<label for="textarea2">Nhập cfs của bạn vào đây ^^ :</label>
+			<span class="helper-text txt-grad2">tối thiểu 150 ký tự, hiện <span id="charNum">0</span> ký tự đã nhập.</span>
 		</div>
 	</div>
 	<div style="text-align: center;padding: 30px" class="">
