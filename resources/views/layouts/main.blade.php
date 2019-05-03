@@ -53,8 +53,8 @@
 					<div class="row desktopPanel" style="">
 						<div class="col-xl-12 col-lg-12 col-sm-3 col-3" style="padding: 5px;">
 							<a href="{{ route('home') }}" class="waves-effect waves-block waves-light" style="width:100px;height: 100px;padding:10px;border: #7bc6cc dashed 3px;float: right;color:#ffffff;justify-content: center;align-items: center;text-decoration: none;background-color: #263238">
-								<i class="fas fa-dice-d20 txt-grad2" style="font-size: 32pt;"></i><br>
-								<h6 style="padding-top:10px">Nhà</h6>
+								<i class="fas fa-dice-d20 txt-grad1" style="font-size: 32pt;"></i><br>
+								<h6 style="padding-top:10px" class="txt-grad1"><b>Nhà</b></h6>
 							</a>
 						</div>
 						<div class="col-xl-12 col-lg-12 col-sm-3 col-3" style="padding: 5px;">
@@ -95,7 +95,7 @@
 						<h6><kbd>này là menu nè :3</kbd></h6>
 						<div class="row" style="padding: 5px;">
 							<a href="/" class="col-3 waves-effect waves-block waves-light" style="width:35px;height: 35px;border: #7bc6cc dashed 1px;color:#ffffff;text-decoration: none;background-color: #263238;display: flex;justify-content: center;align-items: center">
-								<i class="fas fa-dice-d20 txt-grad2" style="font-size: 15pt;"></i>
+								<i class="fas fa-dice-d20 txt-grad1" style="font-size: 15pt;"></i>
 							</a>
 							<a href="#" class="col-3 waves-effect waves-block waves-light" style="width:35px;height: 35px;border: #7bc6cc dashed 1px;color:#ffffff;text-decoration: none;background-color: #37474F;display: flex;justify-content: center;align-items: center">
 								<i class="fas fa-book txt-grad2" style="font-size: 15pt;"></i>
@@ -136,6 +136,7 @@
 						<kbd>Admin: 2K2-A4</kbd><br>
 						<kbd>Admin: 2K3-B1</kbd><br>
 						<kbd>Photograph: 2K1-A4</kbd><br>
+						<HR>
 					</div>
 				</div>
 				<!-- insert -->
@@ -152,7 +153,12 @@
 	$(document).ready(function(){
 		$("#acceptAll").hide();
 		$('select').formSelect();
-		$('textarea#textarea2').characterCounter();
+		//$('textarea#textarea2').characterCounter();
+		$('#textarea2').keyup(function () {
+			var max = 500;
+			var len = $(this).val().length;
+			$('#charNum').text(len);
+		});
 		var $checkboxes = $('#form1 input[type="checkbox"]');
 
 		$checkboxes.change(function(){

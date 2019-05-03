@@ -12,6 +12,10 @@
 
 Route::get('/','HomePageController@index')->name('home');
 
+Route::get('/t', function () {
+    return view('processtoDashboard');
+});
+
 Route::post('/add_confession','ConfessionController@add')->name('add_confession');
 
 /*For Facebook Login*/
