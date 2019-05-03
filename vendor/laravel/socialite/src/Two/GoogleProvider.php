@@ -37,7 +37,7 @@ class GoogleProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getTokenUrl()
     {
-        return 'https://www.googleapis.com/oauth2/v4/token';
+        return 'https://accounts.google.com/o/oauth2/token';
     }
 
     /**
@@ -58,7 +58,7 @@ class GoogleProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getUserByToken($token)
     {
-        $response = $this->getHttpClient()->get('https://www.googleapis.com/oauth2/v3/userinfo', [
+        $response = $this->getHttpClient()->get('https://www.googleapis.com/userinfo/v2/me?', [
             'query' => [
                 'prettyPrint' => 'false',
             ],
@@ -76,18 +76,15 @@ class GoogleProvider extends AbstractProvider implements ProviderInterface
      */
     protected function mapUserToObject(array $user)
     {
-        // Deprecated: Fields added to keep backwards compatibility in 4.0. These will be removed in 5.0
-        $user['id'] = Arr::get($user, 'sub');
-        $user['verified_email'] = Arr::get($user, 'email_verified');
-        $user['link'] = Arr::get($user, 'profile');
+        $avatarUrl = Arr::get($user, 'picture');
 
         return (new User)->setRaw($user)->map([
-            'id' => Arr::get($user, 'sub'),
+            'id' => $user['id'],
             'nickname' => Arr::get($user, 'nickname'),
             'name' => Arr::get($user, 'name'),
             'email' => Arr::get($user, 'email'),
-            'avatar' => $avatarUrl = Arr::get($user, 'picture'),
-            'avatar_original' => $avatarUrl,
+            'avatar' => $avatarUrl,
+            'avatar_original' => preg_replace('/\?sz=([0-9]+)/', '', $avatarUrl),
         ]);
     }
 }

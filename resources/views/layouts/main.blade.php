@@ -162,7 +162,7 @@
 		var $checkboxes = $('#form1 input[type="checkbox"]');
 
 		$checkboxes.change(function(){
-			var countCheckedCheckboxes = $checkboxes.filter(':checked').length;        
+			var countCheckedCheckboxes = $checkboxes.filter(':checked').length;
         	$('#countText').val(countCheckedCheckboxes);
         	if (countCheckedCheckboxes != 0) {
         		$("button.accept").attr("disabled", true);
@@ -174,7 +174,7 @@
     	});
 	});
 </script>
+<script type="text/javascript" src="{{ URL::asset('js/main.js') }}"></script>
 @yield('js')
-
 </body>
 </html>

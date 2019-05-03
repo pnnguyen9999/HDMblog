@@ -21,7 +21,7 @@ class ConfessionController extends Controller
       $confession->save();
 
       session()->put('success','Added');
-      
+
       return view('thankyouPage',['posts' => $confession->content]);
     }
 
@@ -42,7 +42,6 @@ class ConfessionController extends Controller
       $accepted_confession = new AcceptedConfession();
       $accepted_confession->confession_id = $confession_id;
       $accepted_confession->accept_by = Auth::user()->id;
-
       $order = AcceptedConfession::count() == 0 ? $defined_order : (AcceptedConfession::latest()->first()->order + $offset);
       $accepted_confession->order =$order;
       $accepted_confession->save();
@@ -59,8 +58,8 @@ class ConfessionController extends Controller
         return $this->message(-1,"Please login to continue");
       }
 
-      $accepted_confession = AcceptedConfession::findOrFail($confession_id);
-      $accepted_confession->delete();
+      $accepted_confession = AcceptedConfession::find($confession_id);
+      if($accepted_confession) $accepted_confession->delete();
 
       $delete_confession = new DeletedConfession();
       $delete_confession->confession_id = $confession_id;
