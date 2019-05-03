@@ -116,7 +116,9 @@
 					<p><i class="txt-grad2" style="font-size: 10pt">THPT Nguyễn Huệ - Huế .</i></p>
 				</div>
 				<div class="card-reveal black-text">
-					<span class="card-title grey-text text-darken-3"><b>HDM Content Tool & HDM Forum PROJECT</b><i class="material-icons right">close</i></span>
+					<span class="card-title grey-text text-darken-3" style="font-size: 20pt">×</span>
+					<img src="/sources/images/hdmpanel.png" width="100%">
+					<!-- <span class="card-title grey-text text-darken-3"><b>HDM Content Tool & HDM Forum PROJECT</b><i class="material-icons right">close</i></span>
 					<p>Here is some more information about this project, We hope u enjoy it !</p>
 					<div style="text-align: left;">
 						<h6>Home: HDM Confessions</h6>
@@ -137,7 +139,7 @@
 						<kbd>Admin: 2K3-B1</kbd><br>
 						<kbd>Photograph: 2K1-A4</kbd><br>
 						<HR>
-					</div>
+					</div> -->
 				</div>
 				<!-- insert -->
 			</div>
