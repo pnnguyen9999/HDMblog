@@ -12,28 +12,20 @@
 
 Route::get('/','HomePageController@index')->name('home');
 
-Route::get('/t', function () {
-    return view('thankyouPage');
-});
-
-//Route::post('/insert','savecfsController@insert');
-
 Route::post('/add_confession','ConfessionController@add')->name('add_confession');
 
-Auth::routes();
+/*For Facebook Login*/
+Route::get('/redirect/{social}', 'SocialAuthController@redirect');
+Route::get('/callback/{social}', 'SocialAuthController@callback');
 
-//Route::get('/h', 'HomeController@index')->name('home');
+Route::get('/login','CustomLoginController@login');
+Route::get('/logout','CustomLoginController@logout');
 
-Route::get('logout', 'Auth\LoginController@logout');
+Route::prefix('admin')->group(function(){
+  Route::get('/','AdminController@index')->name('admin_dashboard');
 
-Route::get('/login/facebook', 'Auth\LoginController@redirectToFacebookProvider')->name('loginwithFacebook');;
-
-Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderFacebookCallback');
-
-Route::group(['middleware' => [
-    'auth'
-]], function(){
-	Route::get('/admin', 'adminController@load');
-    Route::get('/user', 'GraphController@retrieveUserProfile');
-    Route::get('/page/id={id}', 'GraphController@publishToPage');
+  Route::prefix('confession')->group(function(){
+    Route::get('/approve/{id}','ConfessionController@approve');
+    Route::get('/delete/{id}','ConfessionController@delete');
+  });
 });
