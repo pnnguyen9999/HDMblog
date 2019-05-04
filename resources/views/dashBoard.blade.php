@@ -55,7 +55,7 @@
 
 					<div style="padding: 5px">
 						<label style="padding-right: 5px">
-							<input type="checkbox" class="filled-in checkbox-blue-grey merge-checkbox" />
+							<input type="checkbox" class="filled-in checkbox-blue-grey merge-checkbox" data-confession-id="{{ $confession->id }}"/>
 							<span>GỘP CHUNG</span>
 						</label>
 						<button class="waves-effect waves-light btn blue-grey darken-4 accept approve-confession-btn cf-btn" data-confession-id="{{ $confession->id }}">
@@ -70,8 +70,8 @@
 				</tr>
 			</div>
 		</div>
+		<hr />
 	</div>
-	<hr>
 	@endforeach
 </div>
 </div>

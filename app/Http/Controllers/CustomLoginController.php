@@ -8,7 +8,7 @@ use Auth;
 class CustomLoginController extends Controller
 {
     public function login(){
-      return redirect()->to('redirect/facebook');
+      return view('processtoDashboard');
     }
 
     public function logout(){

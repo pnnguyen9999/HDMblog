@@ -4,6 +4,7 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link rel="shortcut icon" href="favicon.ico">
@@ -70,7 +71,7 @@
 							</a>
 						</div>
 						<div class="col-xl-12 col-lg-12 col-sm-3 col-3" style="padding: 5px;">
-							<a href="/admin" class="waves-effect waves-block waves-light" style="width:100px;height: 100px;padding:10px;border: #7bc6cc dashed 3px;float: right;color:#ffffff;justify-content: center;align-items: center;text-decoration: none;background-color: #37474F">
+							<a href="/login" class="waves-effect waves-block waves-light" style="width:100px;height: 100px;padding:10px;border: #7bc6cc dashed 3px;float: right;color:#ffffff;justify-content: center;align-items: center;text-decoration: none;background-color: #37474F">
 								<i class="fas fa-atom txt-grad2" style="font-size: 32pt;"></i><br>
 								<h6 style="padding-top:10px">Admin</h6>
 							</a>
