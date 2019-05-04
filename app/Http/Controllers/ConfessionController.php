@@ -10,9 +10,6 @@ class ConfessionController extends Controller
 {
     public function add(Request $request){
       $confession = ConfessionDatabaseService::add_confession($request);
-
-      session()->put('success','Added');
-
       return view('thankyouPage',['posts' => $confession->content]);
     }
 
