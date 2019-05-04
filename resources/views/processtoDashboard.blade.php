@@ -13,7 +13,7 @@
 	<i style="font-size:15px" class="fas fa-atom txt-grad1"></i><b class="txt-grad1"> admin</b>
 </a>
 <a href="/" class="waves-effect waves-light btn blue-grey darken-4">
-	<i style="font-size:15px" class="fas fa-dice-d20 txt-grad1"></i><b class="txt-grad1"> về nhà :*</b>
+	<i style="font-size:15px" class="fas fa-feather-alt txt-grad1"></i><b class="txt-grad1"> về nhà :*</b>
 </a>
 <hr>
 <div style="padding: 10pt;text-align: justify;">
