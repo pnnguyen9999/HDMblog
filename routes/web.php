@@ -31,5 +31,6 @@ Route::prefix('admin')->group(function(){
   Route::prefix('confession')->group(function(){
     Route::get('/approve/{id}','ConfessionController@approve');
     Route::get('/delete/{id}','ConfessionController@delete');
+    Route::post('/merge_approve_confession','ConfessionController@merge_confession_and_approve');
   });
 });
