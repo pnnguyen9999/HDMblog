@@ -9,9 +9,7 @@ use App\Services\ConfessionDatabaseService;
 class ConfessionController extends Controller
 {
     public function add(Request $request){
-      ConfessionDatabaseService::add_confession($request);
-
-      session()->put('success','Added');
+      $confession = ConfessionDatabaseService::add_confession($request);
 
       return view('thankyouPage',['posts' => $confession->content]);
     }
