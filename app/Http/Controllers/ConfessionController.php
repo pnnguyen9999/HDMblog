@@ -20,51 +20,51 @@ class ConfessionController extends Controller
       $data = ConfessionDatabaseService::approve_confession($confession_id);
 
       if($data === ConfessionDatabaseService::AUTH_ERR){
-        return $this->message(-1,"Please login to continue");
+        return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
       }
 
       if($data === ConfessionDatabaseService::DELETED_ERR){
-        return $this->message(-1,"This confession have been deleted !");
+        return $this->message(-1,"ĐÃ XÓA CFS !");
       }
 
       $facebookGrService = new FacebookGroupService();
       $result = $facebookGrService->publishConfession($data->order,$data->confession->content);
 
       if($result == FacebookGroupService::PUBLISH_ERR){
-        return $this->message(-1,"Cannot post to facebook group");
+        return $this->message(-1,"KHÔNG THỂ DUYỆT CFS !");
       }
 
-      return $this->message(0,"Approved");
+      return $this->message(0,"DUYỆT THÀNH CÔNG !!");
     }
 
     public function delete($confession_id){
       $data = ConfessionDatabaseService::delete_confession($confession_id);
 
       if($data === ConfessionDatabaseService::AUTH_ERR){
-        return $this->message(-1,"Please login to continue");
+        return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
       }
 
-      return $this->message(0,"Deleted");
+      return $this->message(0,"ĐÃ XÓA !");
     }
 
     public function complete_delete($confession_id){
       $data = ConfessionDatabaseService::complete_delete_confession($confession_id);
 
       if($data === ConfessionDatabaseService::AUTH_ERR){
-        return $this->message(-1,"Please login to continue");
+        return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
       }
 
-      return $this->message(0,"Deleted");
+      return $this->message(0,"ĐÃ XÓA !");
     }
 
     public function recover($confession_id){
       $data = ConfessionDatabaseService::recover_confession($confession_id);
 
       if($data === ConfessionDatabaseService::AUTH_ERR){
-        return $this->message(-1,"Please login to continue");
+        return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
       }
 
-      return $this->message(0,"Recovered");
+      return $this->message(0,"ĐÃ KHÔI PHỤC");
     }
 
     public function merge_confession_and_approve(Request $request){
@@ -84,10 +84,10 @@ class ConfessionController extends Controller
       $result = $facebookGrService->publishToPage($message);
 
       if($result == FacebookGroupService::PUBLISH_ERR){
-        return $this->message(-1,"Cannot post to facebook group");
+        return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
       }
 
-      return $this->message(0,"Merge successfully");
+      return $this->message(0,"GỘP DUYỆT THÀNH CÔNG !");
     }
 
     private function message($message_code,$message){

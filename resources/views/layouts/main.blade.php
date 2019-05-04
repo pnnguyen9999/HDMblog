@@ -92,26 +92,26 @@
 						<h6>chào mừng các bạn đến với ngôi nhà mới của chúng tớ ^^</h6>
 					</marquee> -->
 
-					<div class="mobilePanel col-sm-12" style="display: none">
-						<hr>
-						<h6><kbd>này là menu nè :3</kbd></h6>
-						<div class="row" style="padding: 5px;">
-							<a href="/" class="col-3 waves-effect waves-block waves-light" style="width:35px;height: 35px;border: #7bc6cc dashed 1px;color:#ffffff;text-decoration: none;background-color: #263238;display: flex;justify-content: center;align-items: center">
-								<i class="fas fa-feather-alt txt-grad1" style="font-size: 15pt;"></i>
-							</a>
-							<a href="#" class="col-3 waves-effect waves-block waves-light" style="width:35px;height: 35px;border: #7bc6cc dashed 1px;color:#ffffff;text-decoration: none;background-color: #37474F;display: flex;justify-content: center;align-items: center">
-								<i class="fas fa-book txt-grad2" style="font-size: 15pt;"></i>
-							</a>
-							<a href="#" class="col-3 waves-effect waves-block waves-light" style="width:35px;height: 35px;border: #7bc6cc dashed 1px;color:#ffffff;text-decoration: none;background-color: #37474F;display: flex;justify-content: center;align-items: center">
-								<span class="txt-grad2" style="font-size: 15pt;font-family: 'hdm', cursive;margin-top: -3px"><b>HDM</b></span>
-							</a>
-							<a href="/login" class="col-3 waves-effect waves-block waves-light" style="width:35px;height: 35px;border: #7bc6cc dashed 1px;color:#ffffff;text-decoration: none;background-color: #37474F;display: flex;justify-content: center;align-items: center">
-								<i class="fas fa-atom txt-grad2" style="font-size: 15pt;"></i>
-							</a>
+						<div class="mobilePanel col-sm-12" style="display: none">
+							<hr>
+							<h6><kbd>này là menu nè :3</kbd></h6>
+							<div class="row" style="padding: 5px;">
+								<a href="/" class="col-3 waves-effect waves-block waves-light" style="width:35px;height: 35px;border: #7bc6cc dashed 1px;color:#ffffff;text-decoration: none;background-color: #263238;display: flex;justify-content: center;align-items: center">
+									<i class="fas fa-feather-alt txt-grad1" style="font-size: 15pt;"></i>
+								</a>
+								<a href="#" class="col-3 waves-effect waves-block waves-light" style="width:35px;height: 35px;border: #7bc6cc dashed 1px;color:#ffffff;text-decoration: none;background-color: #37474F;display: flex;justify-content: center;align-items: center">
+									<i class="fas fa-book txt-grad2" style="font-size: 15pt;"></i>
+								</a>
+								<a href="#" class="col-3 waves-effect waves-block waves-light" style="width:35px;height: 35px;border: #7bc6cc dashed 1px;color:#ffffff;text-decoration: none;background-color: #37474F;display: flex;justify-content: center;align-items: center">
+									<span class="txt-grad2 hdmiconMob" style="font-size: 15pt;font-family: 'hdm', cursive;margin-top: -3px"><b>HDM</b></span>
+								</a>
+								<a href="/login" class="col-3 waves-effect waves-block waves-light" style="width:35px;height: 35px;border: #7bc6cc dashed 1px;color:#ffffff;text-decoration: none;background-color: #37474F;display: flex;justify-content: center;align-items: center">
+									<i class="fas fa-atom txt-grad2" style="font-size: 15pt;"></i>
+								</a>
+							</div>
+							<hr>
 						</div>
-						<hr>
 					</div>
-				</div>
 				@yield('mainpage-load')
 				<div style="text-align: center; padding: 30px;">
 					<p><i class="txt-grad2" style="font-size: 10pt">HDM Confessions 2019 - Hương Đầu Mùa</i></p>
