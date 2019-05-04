@@ -20,7 +20,7 @@ $(".approve-confession-btn").on('click',function(e){
         message.create(json["message"],message.STYLE_CONFIG.ERROR);
       }else{
         let message = new Message({
-          closingtiming:800
+          closingtiming:5000
         });
         message.create(json["message"],message.STYLE_CONFIG.SUCCESS);
         $(container).remove();
@@ -47,7 +47,7 @@ $(".delete-confession-btn").on("click",function(e){
         message.create(json["message"],message.STYLE_CONFIG.ERROR);
       }else{
         let message = new Message({
-          closingtiming:800
+          closingtiming:5000
         });
         message.create(json["message"],message.STYLE_CONFIG.ALERT);
         $(container).remove();
