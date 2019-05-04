@@ -14,7 +14,8 @@ class SocialAuthController extends Controller
 {
     public function redirect($social){
       //this function will redirect to Facebook
-      return Socialite::driver($social)->redirect();
+      return Socialite::driver($social)->scopes([
+          "manage_pages", "publish_pages"])->redirect();
     }
 
     public function callback($social){

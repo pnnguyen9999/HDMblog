@@ -54,26 +54,27 @@
 					<div class="row desktopPanel" style="">
 						<div class="col-xl-12 col-lg-12 col-sm-3 col-3" style="padding: 5px;">
 							<a href="{{ route('home') }}" class="waves-effect waves-block waves-light" style="width:100px;height: 100px;padding:10px;border: #7bc6cc dashed 3px;float: right;color:#ffffff;justify-content: center;align-items: center;text-decoration: none;background-color: #263238">
-								<i class="fas fa-dice-d20 txt-grad1" style="font-size: 32pt;"></i><br>
-								<h6 style="padding-top:10px" class="txt-grad1"><b>Nhà</b></h6>
+								<i class="fas fa-feather-alt txt-grad1" style="font-size: 32pt;"></i><br>
+								<h6 style="padding-top:10px" class="txt-grad1"><b>nhà</b></h6>
 							</a>
 						</div>
 						<div class="col-xl-12 col-lg-12 col-sm-3 col-3" style="padding: 5px;">
 							<a href="#" class="waves-effect waves-block waves-light" style="width:100px;height: 100px;padding:10px;border: #7bc6cc dashed 3px;float: right;color:#ffffff;justify-content: center;align-items: center;text-decoration: none;background-color: #37474F">
 								<i class="fas fa-book txt-grad2" style="font-size: 32pt;"></i><br>
-								<h6 style="padding-top:10px">Đọc cfs</h6>
+								<h6 style="padding-top:10px">đã đăng</h6>
 							</a>
 						</div>
 						<div class="col-xl-12 col-lg-12 col-sm-3 col-3" style="padding: 5px;">
 							<a href="#" class="waves-effect waves-block waves-light" style="width:100px;height: 100px;padding:10px;border: #7bc6cc dashed 3px;float: right;color:#ffffff;justify-content: center;align-items: center;text-decoration: none;background-color: #37474F">
-								<i class="fas fa-feather-alt txt-grad2" style="font-size: 32pt;"></i><br>
-								<h6 style="padding-top:10px">HDM Blog</h6>
+								<!-- <i class="fas fa-feather-alt txt-grad2" style="font-size: 32pt;"></i><br> -->
+								<span class="txt-grad2" style="font-size: 24pt;font-family: 'hdm', cursive;" href="#"><b>HDM</b></span>
+								<h6 style="padding-top:10px">hội hdm :*</h6>
 							</a>
 						</div>
 						<div class="col-xl-12 col-lg-12 col-sm-3 col-3" style="padding: 5px;">
 							<a href="/login" class="waves-effect waves-block waves-light" style="width:100px;height: 100px;padding:10px;border: #7bc6cc dashed 3px;float: right;color:#ffffff;justify-content: center;align-items: center;text-decoration: none;background-color: #37474F">
 								<i class="fas fa-atom txt-grad2" style="font-size: 32pt;"></i><br>
-								<h6 style="padding-top:10px">Admin</h6>
+								<h6 style="padding-top:10px">quản trị</h6>
 							</a>
 						</div>
 					</div>
@@ -85,7 +86,7 @@
 						<img class="img1 activator" src="{{ URL::asset('sources/images/background.jpg') }}">
 					</div>
 					<div class="card-title card-content" style="text-align: center;">
-						<a class="hdmmainText txt-grad2" style="letter-spacing: 0px;color: #ffffff;font-size: 30pt;font-family: 'Sofia', cursive;" href="#"><b>HDM Confessions</b></a><br>
+						<a class="hdmmainTitle txt-grad2" style="letter-spacing: 0px;color: #ffffff;font-size: 37pt;font-family: 'hdm', cursive;" href="#"><b>HDM Confessions</b></a><br>
 						<img src="/funny/heart2.gif" width="30px" height="30px">
 					<!-- <marquee scrollamount="5">
 						<h6>chào mừng các bạn đến với ngôi nhà mới của chúng tớ ^^</h6>
@@ -96,15 +97,15 @@
 						<h6><kbd>này là menu nè :3</kbd></h6>
 						<div class="row" style="padding: 5px;">
 							<a href="/" class="col-3 waves-effect waves-block waves-light" style="width:35px;height: 35px;border: #7bc6cc dashed 1px;color:#ffffff;text-decoration: none;background-color: #263238;display: flex;justify-content: center;align-items: center">
-								<i class="fas fa-dice-d20 txt-grad1" style="font-size: 15pt;"></i>
+								<i class="fas fa-feather-alt txt-grad1" style="font-size: 15pt;"></i>
 							</a>
 							<a href="#" class="col-3 waves-effect waves-block waves-light" style="width:35px;height: 35px;border: #7bc6cc dashed 1px;color:#ffffff;text-decoration: none;background-color: #37474F;display: flex;justify-content: center;align-items: center">
 								<i class="fas fa-book txt-grad2" style="font-size: 15pt;"></i>
 							</a>
 							<a href="#" class="col-3 waves-effect waves-block waves-light" style="width:35px;height: 35px;border: #7bc6cc dashed 1px;color:#ffffff;text-decoration: none;background-color: #37474F;display: flex;justify-content: center;align-items: center">
-								<i class="fas fa-feather-alt txt-grad2" style="font-size: 15pt;"></i>
+								<span class="txt-grad2" style="font-size: 15pt;font-family: 'hdm', cursive;margin-top: -3px"><b>HDM</b></span>
 							</a>
-							<a href="/admin" class="col-3 waves-effect waves-block waves-light" style="width:35px;height: 35px;border: #7bc6cc dashed 1px;color:#ffffff;text-decoration: none;background-color: #37474F;display: flex;justify-content: center;align-items: center">
+							<a href="/login" class="col-3 waves-effect waves-block waves-light" style="width:35px;height: 35px;border: #7bc6cc dashed 1px;color:#ffffff;text-decoration: none;background-color: #37474F;display: flex;justify-content: center;align-items: center">
 								<i class="fas fa-atom txt-grad2" style="font-size: 15pt;"></i>
 							</a>
 						</div>
@@ -116,9 +117,10 @@
 					<p><i class="txt-grad2" style="font-size: 10pt">HDM Confessions 2019 - Hương Đầu Mùa</i></p>
 					<p><i class="txt-grad2" style="font-size: 10pt">THPT Nguyễn Huệ - Huế .</i></p>
 				</div>
-				<div class="card-reveal black-text">
-					<span class="card-title grey-text text-darken-3" style="font-size: 20pt">×</span>
+				<div class="card-reveal black-text" style="background-color: #e5ddda;padding: 0px;padding-top: 10px">
+					<span class="card-title grey-text text-darken-3" style="font-size: 25pt">×</span>
 					<img src="/sources/images/hdmpanel.png" width="100%">
+					<a href="http://hdmcfs.com/" style="letter-spacing: 5px;color: #304d7e;font-size: 12pt">hdmcfs.com</a>
 					<!-- <span class="card-title grey-text text-darken-3"><b>HDM Content Tool & HDM Forum PROJECT</b><i class="material-icons right">close</i></span>
 					<p>Here is some more information about this project, We hope u enjoy it !</p>
 					<div style="text-align: left;">

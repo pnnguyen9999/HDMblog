@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('mainpage-load')
-<h6 class="txt-grad2" style="padding-bottom: 10px;font-family: 'Sofia', cursive;font-size: 15pt"><b>trang dang cfs</b></h6>
+<h6 class="txt-grad2 hdmminiTitle" style="padding-bottom: 10px;font-family: 'hdm', cursive;font-size: 20pt;"><b>trang gởi cfs</b></h6>
 <hr>
 <div style="padding: 30px;padding-top:0px;text-align: left;">
 	<blockquote style="border-left-color: #7bc6cc">

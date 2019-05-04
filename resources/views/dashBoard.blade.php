@@ -2,7 +2,7 @@
 
 @section('mainpage-load')
 <div style="overflow-x: hidden">
-<h6 class="txt-grad2" style="padding-bottom: 10px;font-family: 'Sofia', cursive;font-size: 15pt"><b>trang duyet cfs</b></h6>
+<h6 class="txt-grad2 hdmminiTitle" style="padding-bottom: 10px;font-family: 'hdm', cursive;font-size: 20pt;"><b>trang duyệt cfs</b></h6>
 <hr>
 <div class="dashboardUser">
 	<h6 style="text-align: left;color: #BBDEFB">- ↓ Administrator -</h6>
@@ -17,7 +17,8 @@
 		</div>
 	</div>
 </div>
-<div class="row" style="padding: 10px">
+
+<!-- <div class="row" style="padding: 10px">
 	<div class="col-sm-12">
 		@foreach (['danger', 'warning', 'success', 'info'] as $msg)
 		@if(Session::has('alert-' . $msg))
@@ -25,7 +26,7 @@
 		@endif
 		@endforeach
 	</div>
-</div>
+</div> -->
 
 <hr>
 <h6 style="padding:10px;padding-bottom: 0px"><b>CÁC BẠN VUI LÒNG DUYỆT TỪ TRÊN XUỐNG ( ↓ ) NHÉ !</b></h6>
