@@ -44,7 +44,7 @@ class ConfessionDatabaseService{
     $confession->content = $confession_content;
     $confession->save();
 
-    return SUCCESS;
+    return $confession;
   }
 
   public static function delete_confession($confession_id){
@@ -88,6 +88,6 @@ class ConfessionDatabaseService{
     $confession->status = self::NO_APPROVE_STATUS;
     $confession->save();
 
-    return SUCCESS;
+    return self::SUCCESS;
   }
 }

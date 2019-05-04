@@ -15,7 +15,6 @@ class AdminController extends Controller
     public function __construct(){
       $this->middleware(function($request,$next){
         if(Auth::check() == false) return redirect()->to('/');
-        
         $token = Auth::user()->social->provider_token;
         #fixed this issue by https://github.com/facebook/php-graph-sdk/issues/754
         $fb = new Facebook(['http_client_handler' => 'stream']);
