@@ -16,6 +16,7 @@ class Confesstable extends Migration
       Schema::create('confession', function (Blueprint $table) {
           $table->increments('id');
           $table->string('content');
+          $table->string('status')->default('no_approve');
           $table->timestamps();
       });
     }
