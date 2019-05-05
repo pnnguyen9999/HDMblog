@@ -1,7 +1,8 @@
 @extends('layouts.main')
 
 @section('mainpage-load')
-
+<h6 class="txt-grad2 hdmminiTitle" style="padding-bottom: 10px;font-family: 'hdm', cursive;font-size: 20pt;"><b>trang duyệt cfs</b></h6>
+<hr>
 <h4 style="color: #ffcdd2;letter-spacing: 5px">>> LƯU Ý !!!</h4><br>
 <blockquote style="padding: 10px;padding-top:0px;font-size: 12pt;text-align: justify;border-left-color: #7bc6cc">
 	<h6 style="font-size: 10pt">bạn sắp chuyển hướng đến trang <b>admin</b> dùng cho mục đích đăng và duyệt cfs, mục này chỉ dành cho các bạn <b>admin HDM</b>.</h6>
