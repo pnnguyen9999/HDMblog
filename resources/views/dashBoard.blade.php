@@ -65,11 +65,8 @@
 					<div style="padding: 5px"><button class="waves-effect waves-light btn delete-confession-btn cf-btn" style="background-color: #FF9800" data-confession-id="{{ $confession->id }}"><i style="font-size:15px" class="fas fa-trash-alt" style="color: black"></i><b style="color: black"> Loại bỏ</b></button></div>
 				</div><br>
 			</div>
-			<div class="card grey darken-4" style="display: block;overflow: auto;padding: 10px">
-				<tr>
-					<th>{{ $confession->content }}</th><br>
-				</tr>
-			</div>
+			<!-- CONTENT TEXT Ở ĐÂY -->
+			<textarea class="materialize-textarea card grey darken-4" style="height:auto;color:#ffffff;display: block;padding: 10px">{{ $confession->content }}</textarea> 
 		</div>
 		<hr />
 	</div>
@@ -80,4 +77,5 @@
 
 @section('js')
 <script type="text/javascript" src="{{ URL::asset('js/admin.js') }}"></script>
+
 @endsection

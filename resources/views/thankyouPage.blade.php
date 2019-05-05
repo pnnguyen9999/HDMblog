@@ -14,7 +14,7 @@
 	<div style="text-align: center;padding: 10px" class="">
 		<!-- <a href="/" class="waves-effect waves-light btn blue-grey darken-4"><b class="txt-grad1">trở về trang chủ</b></a> -->
 		<a href="/" class="waves-effect waves-light btn blue-grey darken-4">
-			<i style="font-size:15px" class="fas fa-dice-d20 txt-grad1"></i><b class="txt-grad1"> về nhà :*</b>
+			<i style="font-size:15px" class="fas fa-feather-alt txt-grad1"></i><b class="txt-grad1"> về nhà :*</b>
 		</a>
 	</div>
 @stop
