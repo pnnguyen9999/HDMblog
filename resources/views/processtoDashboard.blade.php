@@ -5,8 +5,8 @@
 <h4 style="color: #ffcdd2;letter-spacing: 5px">>> LƯU Ý !!!</h4><br>
 <div style="padding: 20px;padding-top:0px;font-size: 11pt;text-align: justify;">
 	<h6 style="font-size: 11pt">bạn sắp chuyển hướng đến trang <b class="txt-grad2">công cụ quản trị</b> dùng cho mục đích đăng và duyệt cfs, mục này chỉ dành cho các bạn <b class="txt-grad2">admin HDM</b>.</h6>
-	<h6 style="font-size: 11pt">nếu bạn <kbd>không phải admin HDM</kbd>, vui lòng quay trở lại <b class="txt-grad2">nhà</b> :((</h6>
-	<kbd>tụi mình xin cảm ơn các bạn rất nhìu !!</kbd>
+	<h6 style="font-size: 11pt">nếu bạn <kbd style="font-family: Nunito">không phải admin HDM</kbd>, vui lòng quay trở lại <b class="txt-grad2">nhà</b> :((</h6>
+	<kbd style="font-family: Nunito">tụi mình xin cảm ơn các bạn rất nhìu !!</kbd>
 </div>
 <hr>
 <a href="/redirect/facebook" class="waves-effect waves-light btn grey lighten-5">

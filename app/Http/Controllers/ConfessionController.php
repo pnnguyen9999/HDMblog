@@ -8,87 +8,90 @@ use App\Services\ConfessionDatabaseService;
 
 class ConfessionController extends Controller
 {
-    public function add(Request $request){
-      $confession = ConfessionDatabaseService::add_confession($request);
-      return view('thankyouPage',['posts' => $confession->content]);
-    }
+		public function add(Request $request){
+			$confession = ConfessionDatabaseService::add_confession($request);
 
-    public function approve($confession_id){
-      $data = ConfessionDatabaseService::approve_confession($confession_id);
+			session()->put('success','Added');
 
-      if($data === ConfessionDatabaseService::AUTH_ERR){
-        return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
-      }
+			return view('thankyouPage',['posts' => $confession->content]);
+		}
 
-      if($data === ConfessionDatabaseService::DELETED_ERR){
-        return $this->message(-1,"ĐÃ XÓA CFS !");
-      }
+		public function approve($confession_id){
+			$data = ConfessionDatabaseService::approve_confession($confession_id);
 
-      $facebookGrService = new FacebookGroupService();
-      $result = $facebookGrService->publishConfession($data->order,$data->confession->content);
+			if($data === ConfessionDatabaseService::AUTH_ERR){
+				return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
+			}
 
-      if($result == FacebookGroupService::PUBLISH_ERR){
-        return $this->message(-1,"KHÔNG THỂ DUYỆT CFS !");
-      }
+			if($data === ConfessionDatabaseService::DELETED_ERR){
+				return $this->message(-1,"ĐÃ XÓA CFS !");
+			}
 
-      return $this->message(0,"DUYỆT THÀNH CÔNG !!");
-    }
+			$facebookGrService = new FacebookGroupService();
+			$result = $facebookGrService->publishConfession($data->order,$data->confession->content);
 
-    public function delete($confession_id){
-      $data = ConfessionDatabaseService::delete_confession($confession_id);
+			if($result == FacebookGroupService::PUBLISH_ERR){
+				return $this->message(-1,"KHÔNG THỂ DUYỆT CFS !");
+			}
 
-      if($data === ConfessionDatabaseService::AUTH_ERR){
-        return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
-      }
+			return $this->message(0,"DUYỆT THÀNH CÔNG !!");
+		}
 
-      return $this->message(0,"ĐÃ XÓA !");
-    }
+		public function delete($confession_id){
+			$data = ConfessionDatabaseService::delete_confession($confession_id);
 
-    public function complete_delete($confession_id){
-      $data = ConfessionDatabaseService::complete_delete_confession($confession_id);
+			if($data === ConfessionDatabaseService::AUTH_ERR){
+				return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
+			}
 
-      if($data === ConfessionDatabaseService::AUTH_ERR){
-        return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
-      }
+			return $this->message(0,"ĐÃ XÓA !");
+		}
 
-      return $this->message(0,"ĐÃ XÓA !");
-    }
+		public function complete_delete($confession_id){
+			$data = ConfessionDatabaseService::complete_delete_confession($confession_id);
 
-    public function recover($confession_id){
-      $data = ConfessionDatabaseService::recover_confession($confession_id);
+			if($data === ConfessionDatabaseService::AUTH_ERR){
+				return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
+			}
 
-      if($data === ConfessionDatabaseService::AUTH_ERR){
-        return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
-      }
+			return $this->message(0,"ĐÃ XÓA !");
+		}
 
-      return $this->message(0,"ĐÃ KHÔI PHỤC");
-    }
+		public function recover($confession_id){
+			$data = ConfessionDatabaseService::recover_confession($confession_id);
 
-    public function merge_confession_and_approve(Request $request){
-      $checkedConfessionIDs = json_decode($request->checkedConfessionIDs);
-      $message = "";
+			if($data === ConfessionDatabaseService::AUTH_ERR){
+				return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
+			}
 
-      foreach($checkedConfessionIDs as $id){
-        $data = ConfessionDatabaseService::approve_confession($id);
-        //please no bug here
-        $_message = "#cfs".$data->order.'
-        '.$data->confession->content;
-        $message = $message.$_message.'
-        ';
-      }
+			return $this->message(0,"ĐÃ KHÔI PHỤC");
+		}
 
-      $facebookGrService = new FacebookGroupService();
-      $result = $facebookGrService->publishToPage($message);
+		public function merge_confession_and_approve(Request $request){
+			$checkedConfessionIDs = json_decode($request->checkedConfessionIDs);
+			$message = "";
 
-      if($result == FacebookGroupService::PUBLISH_ERR){
-        return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
-      }
+			foreach($checkedConfessionIDs as $id){
+				$data = ConfessionDatabaseService::approve_confession($id);
+				//please no bug here
+				$_message = "#cfs".$data->order.'
+				'.$data->confession->content;
+				$message = $message.$_message.'
+				';
+			}
 
-      return $this->message(0,"GỘP DUYỆT THÀNH CÔNG !");
-    }
+			$facebookGrService = new FacebookGroupService();
+			$result = $facebookGrService->publishToPage($message);
 
-    private function message($message_code,$message){
-      $pack = array('message_code' => $message_code,'message' => $message);
-      return json_encode($pack);
-    }
+			if($result == FacebookGroupService::PUBLISH_ERR){
+				return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
+			}
+
+			return $this->message(0,"GỘP DUYỆT THÀNH CÔNG !");
+		}
+
+		private function message($message_code,$message){
+			$pack = array('message_code' => $message_code,'message' => $message);
+			return json_encode($pack);
+		}
 }

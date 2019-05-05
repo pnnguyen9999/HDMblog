@@ -94,7 +94,7 @@
 
 						<div class="mobilePanel col-sm-12" style="display: none">
 							<hr>
-							<h6><kbd>này là menu nè :3</kbd></h6>
+							<h6><kbd style="font-family: Nunito">này là menu nè :3</kbd></h6>
 							<div class="row" style="padding: 5px;">
 								<a href="/" class="col-3 waves-effect waves-block waves-light" style="width:35px;height: 35px;border: #7bc6cc dashed 1px;color:#ffffff;text-decoration: none;background-color: #263238;display: flex;justify-content: center;align-items: center">
 									<i class="fas fa-feather-alt txt-grad1" style="font-size: 15pt;"></i>
@@ -117,9 +117,10 @@
 					<p><i class="txt-grad2" style="font-size: 10pt">HDM Confessions 2019 - Hương Đầu Mùa</i></p>
 					<p><i class="txt-grad2" style="font-size: 10pt">THPT Nguyễn Huệ - Huế .</i></p>
 				</div>
-				<div class="card-reveal black-text" style="background-color: #e5ddda;padding: 0px;padding-top: 10px">
+				<div class="card-reveal black-text" style="background-color: #e5ddda;padding: 0px;padding-top: 0px">
 					<span class="card-title grey-text text-darken-3" style="font-size: 25pt">×</span>
 					<img src="/sources/images/hdmpanel.png" width="100%">
+					<img src="/sources/images/hdm2011.png" width="25%"><br>
 					<a href="http://hdmcfs.com/" style="letter-spacing: 5px;color: #304d7e;font-size: 12pt">hdmcfs.com</a>
 					<!-- <span class="card-title grey-text text-darken-3"><b>HDM Content Tool & HDM Forum PROJECT</b><i class="material-icons right">close</i></span>
 					<p>Here is some more information about this project, We hope u enjoy it !</p>
