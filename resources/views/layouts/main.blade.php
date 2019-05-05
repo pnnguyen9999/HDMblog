@@ -115,13 +115,13 @@
 
 				@yield('mainpage-load')
 				&nbsp;<hr>
-				<div style="text-align: center; padding-bottom: 20px;">
+				<div style="text-align: center; padding-bottom: 27px;">
 					<a href="https://www.facebook.com/huongdaumuanh/" target="_blankd" style="cursor: pointer;"><img src="/sources/images/hdm2011_blue.png" width="20%"><a>
 					<a href="https://www.facebook.com/hdmconfessions/" target="_blankd" style="cursor: pointer;"><img src="/sources/images/hdm2017.png" width="20%"></a><br>
-					<p><i class="txt-grad2" style="font-size: 10pt">HDM Confessions 2019 - Hương Đầu Mùa</i></p>
-					<p><i class="txt-grad2" style="font-size: 10pt">THPT Nguyễn Huệ - Huế &nbsp;</i></p>	
+					<p><i class="txt-grad2" style="font-size: 10pt">HDM Confessions 2019 - Hương Đầu Mùa</i><br>
+					<i class="txt-grad2" style="font-size: 10pt">THPT Nguyễn Huệ - Huế &nbsp;</i></p>	
 				</div>
-				<div class="card-reveal black-text" style="background-color: #e5ddda;padding: 0px;padding-top: 0px">
+				<div class="card-reveal black-text" style="background-color: #e5ddda;padding: 0px">
 					<span class="card-title grey-text text-darken-3" style="font-size: 25pt">×</span>
 					<img src="/sources/images/hdmpanel.png" width="100%">
 					<img src="/sources/images/hdm2011.png" width="25%"><br>

@@ -4,7 +4,7 @@
 <h6 class="txt-grad2 hdmminiTitle" style="padding-bottom: 10px;font-family: 'hdm', cursive;font-size: 20pt;"><b>trang gởi cfs</b></h6>
 <hr>
 <div style="padding: 0px;padding-top:10px;padding-bottom:10px;text-align: left;">
-	<blockquote style="border-left-color: #7bc6cc">
+	<blockquote style="border-left-color: #7bc6cc;padding-left: 15px">
 		<b style="font-size:14pt;color: #ef9a9a"><img src="/funny/star3.gif" width="25px" height="25px"> QUY ĐỊNH :</b><br>
 		Bọn mình sẽ <kbd style="font-family: Nunito">xoá không điều kiện</kbd> với các cfs vi phạm những điều sau:<br>
 		<b>1.</b> Nội dung giống với cfs đã được hiển thị lên page.<br>
