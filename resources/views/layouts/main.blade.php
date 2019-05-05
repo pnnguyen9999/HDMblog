@@ -126,28 +126,6 @@
 					<img src="/sources/images/hdmpanel.png" width="100%">
 					<img src="/sources/images/hdm2011.png" width="25%"><br>
 					<a href="http://hdmcfs.com/" style="letter-spacing: 5px;color: #304d7e;font-size: 12pt">hdmcfs.com</a>
-					<!-- <span class="card-title grey-text text-darken-3"><b>HDM Content Tool & HDM Forum PROJECT</b><i class="material-icons right">close</i></span>
-					<p>Here is some more information about this project, We hope u enjoy it !</p>
-					<div style="text-align: left;">
-						<h6>Home: HDM Confessions</h6>
-						<h6>Launch: 04/25/2019</h6>
-						<h6>Domain Signed: 04/30/2019</h6>
-						<h6>Framework: Laravel with Love</h6>
-						<HR>
-						<h6>Maker: <kbd>G L I X Y L U S Team Dev</kbd> :</h6>
-						<kbd>Main UI UX & Frontend coder: 99-A4&B3</kbd><br>
-						<kbd>Main Backend coder: 99-B5</kbd><br>
-						<HR>
-						<h6>Sponsor: <kbd>H D M Confessions</kbd> :</h6>
-						<kbd>Admin: 99-A4&B3</kbd><br>
-						<kbd>Admin: 2K-B4</kbd><br>
-						<kbd>Admin: 2K1-A1</kbd><br>
-						<kbd>Admin: 2K2-B8</kbd><br>
-						<kbd>Admin: 2K2-A4</kbd><br>
-						<kbd>Admin: 2K3-B1</kbd><br>
-						<kbd>Photograph: 2K1-A4</kbd><br>
-						<HR>
-					</div> -->
 				</div>
 				<!-- insert -->
 			</div>
