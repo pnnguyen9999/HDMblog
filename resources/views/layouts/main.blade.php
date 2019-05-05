@@ -85,7 +85,7 @@
 					<div class="card-image waves-effect waves-block waves-light">
 						<img class="img1 activator" src="{{ URL::asset('sources/images/background.jpg') }}">
 					</div>
-					<div class="card-title card-content" style="text-align: center;">
+					<div class="card-title card-content" style="text-align: center;padding-bottom: 0px">
 						<a class="hdmmainTitle txt-grad2" style="letter-spacing: 0px;color: #ffffff;font-size: 37pt;font-family: 'hdm', cursive;" href="#"><b>HDM Confessions</b></a><br>
 						<img src="/funny/heart2.gif" width="30px" height="30px">
 					<!-- <marquee scrollamount="5">
@@ -112,10 +112,14 @@
 							<hr>
 						</div>
 					</div>
+
 				@yield('mainpage-load')
-				<div style="text-align: center; padding: 30px;">
+				&nbsp;<hr>
+				<div style="text-align: center; padding-bottom: 20px;">
+					<a href="https://www.facebook.com/huongdaumuanh/" target="_blankd" style="cursor: pointer;"><img src="/sources/images/hdm2011_blue.png" width="20%"><a>
+					<a href="https://www.facebook.com/hdmconfessions/" target="_blankd" style="cursor: pointer;"><img src="/sources/images/hdm2017.png" width="20%"></a><br>
 					<p><i class="txt-grad2" style="font-size: 10pt">HDM Confessions 2019 - Hương Đầu Mùa</i></p>
-					<p><i class="txt-grad2" style="font-size: 10pt">THPT Nguyễn Huệ - Huế .</i></p>
+					<p><i class="txt-grad2" style="font-size: 10pt">THPT Nguyễn Huệ - Huế &nbsp;</i></p>	
 				</div>
 				<div class="card-reveal black-text" style="background-color: #e5ddda;padding: 0px;padding-top: 0px">
 					<span class="card-title grey-text text-darken-3" style="font-size: 25pt">×</span>
