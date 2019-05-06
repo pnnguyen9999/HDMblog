@@ -63,14 +63,22 @@ class ConfessionController extends Controller
 			if($data === ConfessionDatabaseService::AUTH_ERR){
 				return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
 			}
+<<<<<<< HEAD
 
 			return $this->message(0,"ĐÃ KHÔI PHỤC");
 		}
 
 
+=======
+      
+      return $this->message(0,"ĐÃ KHÔI PHỤC");
+    }
+  
+>>>>>>> 8ffb765ca8fc391026f43b7ce4ad5e38543edd6c
 		public function merge_confession_and_approve(Request $request){
 			$checkedConfessionIDs = json_decode($request->checkedConfessionIDs);
-			$message = "";
+			$message = '#cfstonghop
+      ';
 
 			foreach($checkedConfessionIDs as $id){
 				$data = ConfessionDatabaseService::approve_confession($id);
