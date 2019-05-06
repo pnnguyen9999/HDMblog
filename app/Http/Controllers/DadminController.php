@@ -7,7 +7,6 @@ use Facebook\Facebook;
 use Illuminate\Http\Request;
 use Auth;
 use App\Confession;
-use App\DeletedConfession;
 
 class AdminController extends Controller
 {
@@ -34,38 +33,12 @@ class AdminController extends Controller
 
       $avatar = json_decode($userProfile['picture'],true)['url'];
 
-      $confessions = $this->getConfessionByStatus('no_approve');
+      $confessions = $this->getConfessionData();
 
+      //command this for testing new blade
       return view('dashBoard',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
-    }
-
-    public function recoverpage(){
-      $userProfile = $this->getUserProfile();
-
-      if(!$userProfile){
-        return "Cannot get facebook profile";
-      }
-
-      $avatar = json_decode($userProfile['picture'],true)['url'];
-
-      $confessions = $this->getConfessionByStatus('deleted');
-
-      return view('recoverConfessions',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
-    }
-
-    public function acceptedpage(){
-      //some thing change
-      $userProfile = $this->getUserProfile();
-
-      if(!$userProfile){
-        return "Cannot get facebook profile";
-      }
-
-      $avatar = json_decode($userProfile['picture'],true)['url'];
-
-      $confessions = $this->getConfessionByStatus('approved');
-
-      return view('approvedConfessions',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
+      //return view('recoverConfessions',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
+      //return view('approvedConfessions',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
     }
 
     private function getUserProfile(){
@@ -81,8 +54,8 @@ class AdminController extends Controller
       return $userProfile;
     }
 
-    private function getConfessionByStatus($status){
-      $confessions = Confession::where('status','=',$status)->orderBy('id','asc')->get();
+    private function getConfessionData(){
+      $confessions = Confession::where('status','=','no_approve')->orderBy('id','asc')->get();
       return $confessions;
     }
 }
