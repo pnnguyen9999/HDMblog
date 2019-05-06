@@ -1,6 +1,15 @@
 @extends('layouts.main')
 
+@section('css')
+<link rel="stylesheet" href="{{ URL::asset('css/admin.css') }}">
+@endsection
+
 @section('mainpage-load')
+
+<div id="loading-container">
+<!-- Add loading element here -->
+</div>
+
 <div style="overflow-x: hidden">
 <h6 class="txt-grad2 hdmminiTitle" style="padding-bottom: 10px;font-family: 'hdm', cursive;font-size: 20pt;"><b>trang duyệt cfs</b></h6>
 <hr>
@@ -66,7 +75,7 @@
 				</div><br>
 			</div>
 			<!-- CONTENT TEXT Ở ĐÂY -->
-			<textarea class="materialize-textarea card grey darken-4" style="height:auto;color:#ffffff;display: block;padding: 10px">{{ $confession->content }}</textarea> 
+			<textarea class="materialize-textarea card grey darken-4" id="txt-area-{{ $confession->id }}" style="height:auto;color:#ffffff;display: block;padding: 10px">{{ $confession->content }}</textarea>
 		</div>
 		<hr />
 	</div>
