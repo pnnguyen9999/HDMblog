@@ -27,8 +27,8 @@ Route::prefix('admin')->group(function(){
   Route::get('/recoverpage','AdminController@recoverpage');
   
   Route::prefix('confession')->group(function(){
-    Route::get('/approve/{id}','ConfessionController@approve');
-    Route::get('/delete/{id}','ConfessionController@delete');
+    Route::post('/approve','ConfessionController@approve');
+    Route::delete('/delete/{id}','ConfessionController@delete');
     Route::post('/merge_approve_confession','ConfessionController@merge_confession_and_approve');
   });
 });

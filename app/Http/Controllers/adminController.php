@@ -2,118 +2,59 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Facebook\Exceptions\FacebookSDKException;
 use Facebook\Facebook;
-use Illuminate\Support\Facades\Auth;
-use DB;
-class adminController extends Controller
+use Illuminate\Http\Request;
+use Auth;
+use App\Confession;
+
+class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     private $api;
-    public function __construct(Facebook $fb)
-    {
-        $this->middleware(function ($request, $next) use ($fb) {
-            $fb->setDefaultAccessToken(Auth::user()->token);
-            $this->api = $fb;
-            return $next($request);
-        });
-    }
-    public function load()
-    {
-        try {
-            $data = DB::table('cfs')->orderBy('id', 'asc')->get();
-            $params = "first_name,last_name,picture,email,birthday,age_range,gender";
 
-            $user = $this->api->get('/me?fields='.$params)->getGraphUser();
-            //echo 'Name: ' . $user['picture'];
-            $picture = json_decode($user['picture'], true);
-            $avatar = $picture['url'];
-            // $data = [
-            //     'info' => [
-            //         [
-            //             'name' => $user['first_name'].' '.$user['last_name'],
-            //             'email' => $user['email'],
-            //             'avatar' => $picture['url']
-            //         ]
-            //     ]
-            // ];
-            //return view('dashBoard', ['data' => $data]);
-            return view('dashBoard', compact('data','user','avatar'));
-            //dd($user);
-
-        } catch (FacebookSDKException $e) {
-
-        }
+    public function __construct(){
+      $this->middleware(function($request,$next){
+        if(Auth::check() == false) return redirect()->to('/');
+        $token = Auth::user()->social->provider_token;
+        #fixed this issue by https://github.com/facebook/php-graph-sdk/issues/754
+        $fb = new Facebook(['http_client_handler' => 'stream']);
+        $fb->setDefaultAccessToken($token);
+        $this->api = $fb;
+        return $next($request);
+      });
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function index(){
+      $userProfile = $this->getUserProfile();
+
+      if(!$userProfile){
+        return "Cannot get facebook profile";
+      }
+
+      $avatar = json_decode($userProfile['picture'],true)['url'];
+
+      $confessions = $this->getConfessionData();
+
+      //command this for testing new blade
+      return view('dashBoard',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
+      //return view('recoverConfessions',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    private function getUserProfile(){
+      $userProfile = null;
+
+      try{
+        $params = "first_name,last_name,picture,email,birthday,age_range,gender";
+        $userProfile = $this->api->get('/me?fields='.$params)->getGraphUser();
+      }catch(FacebookSDKException $e){
+
+      }
+
+      return $userProfile;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    private function getConfessionData(){
+      $confessions = Confession::where('status','=','no_approve')->orderBy('id','asc')->get();
+      return $confessions;
     }
 }

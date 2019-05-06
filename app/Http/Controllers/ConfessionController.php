@@ -8,89 +8,96 @@ use App\Services\ConfessionDatabaseService;
 
 class ConfessionController extends Controller
 {
-    public function add(Request $request){
-      $confession = ConfessionDatabaseService::add_confession($request);
+		public function add(Request $request){
+			$confession = ConfessionDatabaseService::add_confession($request);
 
-      return view('thankyouPage',['posts' => $confession->content]);
-    }
+			session()->put('success','Added');
 
-    public function approve($confession_id){
-      $data = ConfessionDatabaseService::approve_confession($confession_id);
+			return view('thankyouPage',['posts' => $confession->content]);
+		}
 
-      if($data === ConfessionDatabaseService::AUTH_ERR){
-        return $this->message(-1,"Please login to continue");
-      }
+		public function approve(Request $request){
+			$confession_id = $request->confession_id;
+			$confession_content = $request->confession_content;
 
-      if($data === ConfessionDatabaseService::DELETED_ERR){
-        return $this->message(-1,"This confession have been deleted !");
-      }
+			$data = ConfessionDatabaseService::approve_confession($confession_id,$confession_content);
 
-      $facebookGrService = new FacebookGroupService();
-      $result = $facebookGrService->publishConfession($data->order,$data->confession->content);
+			if($data === ConfessionDatabaseService::AUTH_ERR){
+				return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
+			}
 
-      if($result == FacebookGroupService::PUBLISH_ERR){
-        return $this->message(-1,"Cannot post to facebook group");
-      }
+			if($data === ConfessionDatabaseService::DELETED_ERR){
+				return $this->message(-1,"ĐÃ XÓA CFS !");
+			}
 
-      return $this->message(0,"Approved");
-    }
+			$facebookGrService = new FacebookGroupService();
+			$result = $facebookGrService->publishConfession($data->order,$data->confession->content);
 
-    public function delete($confession_id){
-      $data = ConfessionDatabaseService::delete_confession($confession_id);
+			if($result == FacebookGroupService::PUBLISH_ERR){
+				return $this->message(-1,"KHÔNG THỂ DUYỆT CFS !");
+			}
 
-      if($data === ConfessionDatabaseService::AUTH_ERR){
-        return $this->message(-1,"Please login to continue");
-      }
+			return $this->message(0,"DUYỆT THÀNH CÔNG !!");
+		}
 
-      return $this->message(0,"Deleted");
-    }
+		public function delete(Request $request){
+			$confession_id = $request->confession_id;
+			$data = ConfessionDatabaseService::delete_confession($confession_id);
 
-    public function complete_delete($confession_id){
-      $data = ConfessionDatabaseService::complete_delete_confession($confession_id);
+			if($data === ConfessionDatabaseService::AUTH_ERR){
+				return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
+			}
 
-      if($data === ConfessionDatabaseService::AUTH_ERR){
-        return $this->message(-1,"Please login to continue");
-      }
+			return $this->message(0,"ĐÃ XÓA !");
+		}
 
-      return $this->message(0,"Deleted");
-    }
+		public function complete_delete($confession_id){
+			$data = ConfessionDatabaseService::complete_delete_confession($confession_id);
 
-    public function recover($confession_id){
-      $data = ConfessionDatabaseService::recover_confession($confession_id);
+			if($data === ConfessionDatabaseService::AUTH_ERR){
+				return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
+			}
 
-      if($data === ConfessionDatabaseService::AUTH_ERR){
-        return $this->message(-1,"Please login to continue");
-      }
+			return $this->message(0,"ĐÃ XÓA !");
+		}
 
-      return $this->message(0,"Recovered");
-    }
+		public function recover($confession_id){
+			$data = ConfessionDatabaseService::recover_confession($confession_id);
 
-    public function merge_confession_and_approve(Request $request){
-      $checkedConfessionIDs = json_decode($request->checkedConfessionIDs);
-      $message = '#cfstonghop
+			if($data === ConfessionDatabaseService::AUTH_ERR){
+				return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
+			}
+
+			return $this->message(0,"ĐÃ KHÔI PHỤC");
+		}
+
+
+		public function merge_confession_and_approve(Request $request){
+			$checkedConfessionIDs = json_decode($request->checkedConfessionIDs);
+			$message = '#cfstonghop
       ';
 
-      foreach($checkedConfessionIDs as $id){
-        $data = ConfessionDatabaseService::approve_confession($id);
-        //please no bug here
-        $_message = "#cfs".$data->order.'
-        '.$data->confession->content;
-        $message = $message.$_message.'
-        ';
-      }
+			foreach($checkedConfessionIDs as $data){
+				$data = ConfessionDatabaseService::approve_confession($data->confession_id,$data->confession_content);
+				//please no bug here
+				$_message = "#cfs".$data->order.'
+				'.$data->confession->content;
+				$message = $message.$_message.'
+				';
+			}
 
-      $facebookGrService = new FacebookGroupService();
-      $result = $facebookGrService->publishToPage($message);
+			$facebookGrService = new FacebookGroupService();
+			$result = $facebookGrService->publishToPage($message);
 
-      if($result == FacebookGroupService::PUBLISH_ERR){
-        return $this->message(-1,"Cannot post to facebook group");
-      }
+			if($result == FacebookGroupService::PUBLISH_ERR){
+				return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
+			}
 
-      return $this->message(0,"Merge successfully");
-    }
+			return $this->message(0,"GỘP DUYỆT THÀNH CÔNG !");
+		}
 
-    private function message($message_code,$message){
-      $pack = array('message_code' => $message_code,'message' => $message);
-      return json_encode($pack);
-    }
+		private function message($message_code,$message){
+			$pack = array('message_code' => $message_code,'message' => $message);
+			return json_encode($pack);
+		}
 }
