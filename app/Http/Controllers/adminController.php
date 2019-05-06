@@ -38,6 +38,7 @@ class AdminController extends Controller
       //command this for testing new blade
       return view('dashBoard',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
       //return view('recoverConfessions',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
+      //return view('approvedConfessions',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
     }
 
     private function getUserProfile(){
