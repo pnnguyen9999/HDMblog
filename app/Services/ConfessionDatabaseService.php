@@ -10,6 +10,7 @@ use Auth;
 class ConfessionDatabaseService{
   const AUTH_ERR = -1;
   const DELETED_ERR = -2;
+  const APPROVED_ERR = -3;
   const SUCCESS = 0;
 
   const NO_APPROVE_STATUS  = "no_approve";
@@ -18,15 +19,15 @@ class ConfessionDatabaseService{
 
   public static function approve_confession($confession_id){
     if(Auth::check() == false) return self::AUTH_ERR;
-    if(DeletedConfession::find($confession_id)) return self::DELETED_ERR;
-
+    if(DeletedConfession::where('confession_id','=',$confession_id)->first()) return self::DELETED_ERR;
+    if(AcceptedConfession::where('confession_id','=',$confession_id)->first()) return self::APPROVED_ERR;
+    
     $defined_order = 12345;
-    $offset = 1;
 
     $accepted_confession = new AcceptedConfession();
     $accepted_confession->confession_id = $confession_id;
     $accepted_confession->accept_by = Auth::user()->id;
-    $order = AcceptedConfession::count() == 0 ? $defined_order : (AcceptedConfession::latest()->first()->order + $offset);
+    $order = AcceptedConfession::count() == 0 ? $defined_order : (AcceptedConfession::orderBy('id', 'desc')->first()->order + 1);
     $accepted_confession->order =$order;
     $accepted_confession->save();
 

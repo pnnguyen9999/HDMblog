@@ -9,7 +9,7 @@
 	<kbd>tụi mình xin cảm ơn các bạn rất nhìu !!</kbd>
 </div>
 <hr>
-<a href="/redirect/facebook" class="waves-effect waves-light btn grey lighten-5">
+<a href="/login" class="waves-effect waves-light btn grey lighten-5">
 	<i style="font-size:15px" class="fas fa-atom txt-grad1"></i><b class="txt-grad1"> admin</b>
 </a>
 <a href="/" class="waves-effect waves-light btn blue-grey darken-4">

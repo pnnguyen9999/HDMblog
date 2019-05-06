@@ -67,7 +67,8 @@ class ConfessionController extends Controller
 
     public function merge_confession_and_approve(Request $request){
       $checkedConfessionIDs = json_decode($request->checkedConfessionIDs);
-      $message = "";
+      $message = '#cfstonghop
+      ';
 
       foreach($checkedConfessionIDs as $id){
         $data = ConfessionDatabaseService::approve_confession($id);

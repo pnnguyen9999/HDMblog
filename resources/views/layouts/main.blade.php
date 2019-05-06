@@ -71,7 +71,7 @@
 							</a>
 						</div>
 						<div class="col-xl-12 col-lg-12 col-sm-3 col-3" style="padding: 5px;">
-							<a href="/login" class="waves-effect waves-block waves-light" style="width:100px;height: 100px;padding:10px;border: #7bc6cc dashed 3px;float: right;color:#ffffff;justify-content: center;align-items: center;text-decoration: none;background-color: #37474F">
+							<a href="/pre_login" class="waves-effect waves-block waves-light" style="width:100px;height: 100px;padding:10px;border: #7bc6cc dashed 3px;float: right;color:#ffffff;justify-content: center;align-items: center;text-decoration: none;background-color: #37474F">
 								<i class="fas fa-atom txt-grad2" style="font-size: 32pt;"></i><br>
 								<h6 style="padding-top:10px">Admin</h6>
 							</a>

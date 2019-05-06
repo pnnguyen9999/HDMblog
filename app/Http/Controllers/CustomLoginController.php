@@ -7,8 +7,15 @@ use Auth;
 
 class CustomLoginController extends Controller
 {
-    public function login(){
+    public function pre_login(){
       return view('processtoDashboard');
+    }
+    public function login(){
+      if(Auth::check()){
+        return redirect()->to('/admin');
+      }
+
+      return redirect()->to('/redirect/facebook');
     }
 
     public function logout(){
