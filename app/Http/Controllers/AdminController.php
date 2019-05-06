@@ -7,6 +7,7 @@ use Facebook\Facebook;
 use Illuminate\Http\Request;
 use Auth;
 use App\Confession;
+use App\DeletedConfession;
 
 class AdminController extends Controller
 {
@@ -33,9 +34,23 @@ class AdminController extends Controller
 
       $avatar = json_decode($userProfile['picture'],true)['url'];
 
-      $confessions = $this->getConfessionData();
+      $confessions = $this->getConfessionByStatus('no_approve');
 
       return view('dashBoard',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
+    }
+
+    public function recoverpage(){
+      $userProfile = $this->getUserProfile();
+
+      if(!$userProfile){
+        return "Cannot get facebook profile";
+      }
+
+      $avatar = json_decode($userProfile['picture'],true)['url'];
+
+      $confessions = $this->getConfessionByStatus('deleted');
+
+      return view('recoverConfessions',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
     }
 
     private function getUserProfile(){
@@ -51,8 +66,8 @@ class AdminController extends Controller
       return $userProfile;
     }
 
-    private function getConfessionData(){
-      $confessions = Confession::where('status','=','no_approve')->orderBy('id','asc')->get();
+    private function getConfessionByStatus($status){
+      $confessions = Confession::where('status','=',$status)->orderBy('id','asc')->get();
       return $confessions;
     }
 }

@@ -24,7 +24,8 @@ Route::get('/logout','CustomLoginController@logout');
 
 Route::prefix('admin')->group(function(){
   Route::get('/','AdminController@index')->name('admin_dashboard');
-
+  Route::get('/recoverpage','AdminController@recoverpage');
+  
   Route::prefix('confession')->group(function(){
     Route::get('/approve/{id}','ConfessionController@approve');
     Route::get('/delete/{id}','ConfessionController@delete');
