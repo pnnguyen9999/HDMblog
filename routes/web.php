@@ -12,16 +12,13 @@
 
 Route::get('/','HomePageController@index')->name('home');
 
-Route::get('/t', function () {
-    return view('processtoDashboard');
-});
-
 Route::post('/add_confession','ConfessionController@add')->name('add_confession');
 
 /*For Facebook Login*/
 Route::get('/redirect/{social}', 'SocialAuthController@redirect');
 Route::get('/callback/{social}', 'SocialAuthController@callback');
 
+Route::get('/pre_login','CustomLoginController@pre_login');
 Route::get('/login','CustomLoginController@login');
 Route::get('/logout','CustomLoginController@logout');
 
