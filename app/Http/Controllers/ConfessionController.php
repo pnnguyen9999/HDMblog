@@ -16,8 +16,11 @@ class ConfessionController extends Controller
 			return view('thankyouPage',['posts' => $confession->content]);
 		}
 
-		public function approve($confession_id){
-			$data = ConfessionDatabaseService::approve_confession($confession_id);
+		public function approve(Request $request){
+			$confession_id = $request->confession_id;
+			$confession_content = $request->confession_content;
+
+			$data = ConfessionDatabaseService::approve_confession($confession_id,$confession_content);
 
 			if($data === ConfessionDatabaseService::AUTH_ERR){
 				return $this->message(-1,"ĐĂNG NHẬP ĐỂ TIẾP TỤC");
@@ -37,7 +40,8 @@ class ConfessionController extends Controller
 			return $this->message(0,"DUYỆT THÀNH CÔNG !!");
 		}
 
-		public function delete($confession_id){
+		public function delete(Request $request){
+			$confession_id = $request->confession_id;
 			$data = ConfessionDatabaseService::delete_confession($confession_id);
 
 			if($data === ConfessionDatabaseService::AUTH_ERR){
@@ -67,12 +71,14 @@ class ConfessionController extends Controller
 			return $this->message(0,"ĐÃ KHÔI PHỤC");
 		}
 
+
 		public function merge_confession_and_approve(Request $request){
 			$checkedConfessionIDs = json_decode($request->checkedConfessionIDs);
-			$message = "";
+			$message = '#cfstonghop
+      ';
 
-			foreach($checkedConfessionIDs as $id){
-				$data = ConfessionDatabaseService::approve_confession($id);
+			foreach($checkedConfessionIDs as $data){
+				$data = ConfessionDatabaseService::approve_confession($data->confession_id,$data->confession_content);
 				//please no bug here
 				$_message = "#cfs".$data->order.'
 				'.$data->confession->content;

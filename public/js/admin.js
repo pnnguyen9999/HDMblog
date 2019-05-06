@@ -7,11 +7,19 @@ $.ajaxSetup({
 $(".approve-confession-btn").on('click',function(e){
   let confession_id = $(this).data('confession-id');
   let container = $("#confession-card-" + confession_id);
+  let txt_area = $("#txt-area-" + confession_id);
+
+  $("#loading-container").addClass("is-open");
   $.ajax({
-    type:'GET',
-    url:'/admin/confession/approve/' + confession_id,
+    type:'POST',
+    url:'/admin/confession/approve',
+    data:{
+      confession_id:confession_id,
+      confession_content:$(txt_area).val()
+    },
     success:function(data){
       console.log(data);
+      $("#loading-container").removeClass("is-open");
       let json = JSON.parse(data);
       if(json["message_code"] == -1){
         let message = new Message({
@@ -35,10 +43,16 @@ $(".approve-confession-btn").on('click',function(e){
 $(".delete-confession-btn").on("click",function(e){
   let confession_id = $(this).data("confession-id");
   let container = $("#confession-card-" + confession_id);
+  $("#loading-container").addClass("is-open");
+
   $.ajax({
-    type:'GET',
-    url:'/admin/confession/delete/' + confession_id,
+    type:'DELETE',
+    url:'/admin/confession/delete',
+    data:{
+      confession_id:confession_id
+    },
     success:function(data){
+      $("#loading-container").removeClass("is-open");
       let json = JSON.parse(data);
       if(json["message_code"] == -1){
         let message = new Message({
@@ -80,10 +94,18 @@ $(".merge-checkbox").change(function(e){
 $("#acceptAll").on('click',function(e){
   let mergeVals = [];
   let containers = [];
+  $("#loading-container").addClass("is-open");
 
   $(".merge-checkbox:checked").each(function(index){
     let confession_id = $(this).data("confession-id");
-    mergeVals.push(confession_id);
+    let confession_content = $("#txt-area-" + confession_id).val();
+
+    let data = {
+      confession_id:confession_id,
+      confession_content:confession_content
+    }
+
+    mergeVals.push(data);
 
     let container = $("#confession-card-" + confession_id);
     containers.push(container);
@@ -98,6 +120,7 @@ $("#acceptAll").on('click',function(e){
       checkedConfessionIDs:valsAsJSON
     },
     success:function(data){
+      $("#loading-container").removeClass("is-open");
       let json = JSON.parse(data);
       if(json["message_code"] == -1){
         let message = new Message({
@@ -113,8 +136,12 @@ $("#acceptAll").on('click',function(e){
         for(var i = 0; i < containers.length;i++){
           $(containers[i]).remove();
         }
-
       }
+
+      //restart value
+      $("#countText").val(0);
+      $("#acceptAll").hide();
+      $(".cf-btn").removeAttr("disabled");
     },
     error:function(jqXHR,exception){
       console.log(jqXHR.responseText);
