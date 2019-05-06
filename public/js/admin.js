@@ -35,6 +35,7 @@ $(".approve-confession-btn").on('click',function(e){
       }
     },
     error:function(jqXHR,exception){
+      $("#loading-container").removeClass("is-open");
       console.log(jqXHR.responseText);
     }
   });
@@ -48,6 +49,74 @@ $(".delete-confession-btn").on("click",function(e){
   $.ajax({
     type:'DELETE',
     url:'/admin/confession/delete',
+    data:{
+      confession_id:confession_id
+    },
+    success:function(data){
+      $("#loading-container").removeClass("is-open");
+      let json = JSON.parse(data);
+      if(json["message_code"] == -1){
+        let message = new Message({
+          autoclosing:false
+        });
+        message.create(json["message"],message.STYLE_CONFIG.ERROR);
+      }else{
+        let message = new Message({
+          closingtiming:5000
+        });
+        message.create(json["message"],message.STYLE_CONFIG.ALERT);
+        $(container).remove();
+      }
+    },
+    error:function(jqXHR,exception){
+      $("#loading-container").removeClass("is-open");
+      console.log(jqXHR.responseText);
+    }
+  });
+});
+
+$(".recover-confession-btn").on('click',function(e){
+  let confession_id = $(this).data("confession-id");
+  let container = $("#confession-card-" + confession_id);
+  $("#loading-container").addClass("is-open");
+
+  $.ajax({
+    type:'POST',
+    url:'/admin/confession/recover',
+    data:{
+      confession_id:confession_id
+    },
+    success:function(data){
+      $("#loading-container").removeClass("is-open");
+      let json = JSON.parse(data);
+      if(json["message_code"] == -1){
+        let message = new Message({
+          autoclosing:false
+        });
+        message.create(json["message"],message.STYLE_CONFIG.ERROR);
+      }else{
+        let message = new Message({
+          closingtiming:5000
+        });
+        message.create(json["message"],message.STYLE_CONFIG.ALERT);
+        $(container).remove();
+      }
+    },
+    error:function(jqXHR,exception){
+      $("#loading-container").removeClass("is-open");
+      console.log(jqXHR.responseText);
+    }
+  });
+});
+
+$(".complete-delete-confession-btn").on('click',function(e){
+  let confession_id = $(this).data("confession-id");
+  let container = $("#confession-card-" + confession_id);
+  $("#loading-container").addClass("is-open");
+
+  $.ajax({
+    type:'DELETE',
+    url:'/admin/confession/complete_delete',
     data:{
       confession_id:confession_id
     },
@@ -104,7 +173,6 @@ $("#acceptAll").on('click',function(e){
       confession_id:confession_id,
       confession_content:confession_content
     }
-
     mergeVals.push(data);
 
     let container = $("#confession-card-" + confession_id);
@@ -144,6 +212,7 @@ $("#acceptAll").on('click',function(e){
       $(".cf-btn").removeAttr("disabled");
     },
     error:function(jqXHR,exception){
+      $("#loading-container").removeClass("is-open");
       console.log(jqXHR.responseText);
     }
   });

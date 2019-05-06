@@ -51,7 +51,9 @@ class ConfessionController extends Controller
 			return $this->message(0,"ĐÃ XÓA !");
 		}
 
-		public function complete_delete($confession_id){
+		public function complete_delete(Request $request){
+			$confession_id = $request->confession_id;
+			
 			$data = ConfessionDatabaseService::complete_delete_confession($confession_id);
 
 			if($data === ConfessionDatabaseService::AUTH_ERR){
@@ -61,7 +63,9 @@ class ConfessionController extends Controller
 			return $this->message(0,"ĐÃ XÓA !");
 		}
 
-		public function recover($confession_id){
+		public function recover(Request $request){
+			$confession_id = $request->confession_id;
+
 			$data = ConfessionDatabaseService::recover_confession($confession_id);
 
 			if($data === ConfessionDatabaseService::AUTH_ERR){

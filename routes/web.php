@@ -28,7 +28,9 @@ Route::prefix('admin')->group(function(){
 
   Route::prefix('confession')->group(function(){
     Route::post('/approve','ConfessionController@approve');
-    Route::delete('/delete/{id}','ConfessionController@delete');
+    Route::delete('/delete','ConfessionController@delete');
+    Route::delete('/complete_delete','ConfessionController@complete_delete');
+    Route::post('/recover','ConfessionController@recover');
     Route::post('/merge_approve_confession','ConfessionController@merge_confession_and_approve');
   });
 });

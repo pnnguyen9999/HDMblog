@@ -33,7 +33,7 @@ class ConfessionDatabaseService{
     $accepted_confession->confession_id = $confession_id;
     $accepted_confession->accept_by = Auth::user()->id;
     $order = AcceptedConfession::count() == 0 ? $defined_order : (AcceptedConfession::orderBy('id', 'desc')->first()->order + 1);
-    $accepted_confession->order =$order;
+    $accepted_confession->order =  $order;
     $accepted_confession->save();
 
     return $accepted_confession;
@@ -52,7 +52,7 @@ class ConfessionDatabaseService{
   public static function delete_confession($confession_id){
     if(Auth::check() == false) return self::AUTH_ERR;
 
-    $accepted_confession = AcceptedConfession::find($confession_id);
+    $accepted_confession = AcceptedConfession::where('confession_id','=',$confession_id)->first();
     if($accepted_confession) $accepted_confession->delete();
 
     $delete_confession = new DeletedConfession();
@@ -70,10 +70,10 @@ class ConfessionDatabaseService{
   public static function complete_delete_confession($confession_id){
     if(Auth::check() == false) return self::AUTH_ERR;
 
-    $deleted_confession = DeletedConfession::find($confession_id);
+    $deleted_confession = DeletedConfession::where('confession_id','=',$confession_id)->first();
     if($deleted_confession) $deleted_confession->delete();
 
-    $accepted_confession = AcceptedConfession::find($confession_id);
+    $accepted_confession = AcceptedConfession::where('confession_id','=',$confession_id)->first();
     if($accepted_confession) $accepted_confession->delete();
 
     $confession = Confession::find($confession_id);
@@ -83,8 +83,8 @@ class ConfessionDatabaseService{
   }
 
   public static function recover_confession($confession_id){
-    $deleted_confession = DeletedConfession::findOrFail($confession_id);
-    $deleted_confession->delete();
+    $deleted_confession = DeletedConfession::where('confession_id','=',$confession_id)->first();
+    if($deleted_confession) $deleted_confession->delete();
 
     $confession = Confession::find($confession_id);
     $confession->status = self::NO_APPROVE_STATUS;

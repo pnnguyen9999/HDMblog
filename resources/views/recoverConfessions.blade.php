@@ -45,14 +45,14 @@
 				<div class="col-sm-6" style="padding-right:0px;float: right;text-align: right;border-right: #99ccff solid 5px">
 
 					<div style="padding: 5px">
-						<button class="waves-effect waves-light btn blue-grey darken-4 accept approve-confession-btn cf-btn" data-confession-id="{{ $confession->id }}">
+						<button class="waves-effect waves-light btn blue-grey darken-4 accept recover-confession-btn cf-btn" data-confession-id="{{ $confession->id }}">
 						<i style="font-size:15px" class="fas fa-check txt-grad1"></i><b class="txt-grad2"> Khôi phục</b></button>
 					</div>
-					<div style="padding: 5px"><button class="waves-effect waves-light btn delete-confession-btn cf-btn" style="background-color: #FF9800" data-confession-id="{{ $confession->id }}"><i style="font-size:15px" class="fas fa-trash-alt" style="color: black"></i><b style="color: black"> Xoá hẳn</b></button></div>
+					<div style="padding: 5px"><button class="waves-effect waves-light btn complete-delete-confession-btn cf-btn" style="background-color: #FF9800" data-confession-id="{{ $confession->id }}"><i style="font-size:15px" class="fas fa-trash-alt" style="color: black"></i><b style="color: black"> Xoá hẳn</b></button></div>
 				</div><br>
 			</div>
 			<!-- CONTENT TEXT Ở ĐÂY -->
-			<div class="card grey darken-4" style="height:auto;color:#ffffff;display: block;padding: 10px">{{ $confession->content }}</div> 
+			<div class="card grey darken-4" style="height:auto;color:#ffffff;display: block;padding: 10px">{{ $confession->content }}</div>
 		</div>
 		<hr />
 	</div>
