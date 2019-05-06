@@ -5,7 +5,7 @@
 		<div style="padding: 2px;padding-left: 10px">
 			<h4 style="">{{$profile['first_name'].' '.$profile['last_name']}}</h4>
 			<h5 style="color: #C8E6C9">{{$profile['email']}}</h5>
-			<a href="/logout" class="waves-effect waves-light btn grey lighten-5">
+			<a href="/logout" class="waves-effect waves-light btn " style="background-color: #212121">
 				<i style="font-size:15px" class="fas fa-sign-out-alt txt-grad1"></i><b class="txt-grad1"> đăng xuất</b>
 			</a>
 		</div>

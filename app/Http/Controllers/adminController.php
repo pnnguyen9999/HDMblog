@@ -11,78 +11,78 @@ use App\DeletedConfession;
 
 class AdminController extends Controller
 {
-    private $api;
+		private $api;
 
-    public function __construct(){
-      $this->middleware(function($request,$next){
-        if(Auth::check() == false) return redirect()->to('/');
-        $token = Auth::user()->social->provider_token;
-        #fixed this issue by https://github.com/facebook/php-graph-sdk/issues/754
-        $fb = new Facebook(['http_client_handler' => 'stream']);
-        $fb->setDefaultAccessToken($token);
-        $this->api = $fb;
-        return $next($request);
-      });
-    }
+		public function __construct(){
+			$this->middleware(function($request,$next){
+				if(Auth::check() == false) return redirect()->to('/');
+				$token = Auth::user()->social->provider_token;
+				#fixed this issue by https://github.com/facebook/php-graph-sdk/issues/754
+				$fb = new Facebook(['http_client_handler' => 'stream']);
+				$fb->setDefaultAccessToken($token);
+				$this->api = $fb;
+				return $next($request);
+			});
+		}
 
-    public function index(){
-      $userProfile = $this->getUserProfile();
+		public function index(){
+			$userProfile = $this->getUserProfile();
 
-      if(!$userProfile){
-        return "Cannot get facebook profile";
-      }
+			if(!$userProfile){
+				return "Cannot get facebook profile";
+			}
 
-      $avatar = json_decode($userProfile['picture'],true)['url'];
+			$avatar = json_decode($userProfile['picture'],true)['url'];
 
-      $confessions = $this->getConfessionByStatus('no_approve');
+			$confessions = $this->getConfessionByStatus('no_approve');
 
-      return view('dashBoard',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
-    }
+			return view('dashBoard',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
+		}
 
-    public function recoverpage(){
-      $userProfile = $this->getUserProfile();
+		public function recoverpage(){
+			$userProfile = $this->getUserProfile();
 
-      if(!$userProfile){
-        return "Cannot get facebook profile";
-      }
+			if(!$userProfile){
+				return "Cannot get facebook profile";
+			}
 
-      $avatar = json_decode($userProfile['picture'],true)['url'];
+			$avatar = json_decode($userProfile['picture'],true)['url'];
 
-      $confessions = $this->getConfessionByStatus('deleted');
+			$confessions = $this->getConfessionByStatus('deleted');
 
-      return view('recoverConfessions',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
-    }
+			return view('recoverConfessions',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
+		}
 
-    public function acceptedpage(){
-      //some thing change
-      $userProfile = $this->getUserProfile();
+		public function acceptedpage(){
+			//some thing change
+			$userProfile = $this->getUserProfile();
 
-      if(!$userProfile){
-        return "Cannot get facebook profile";
-      }
+			if(!$userProfile){
+				return "Cannot get facebook profile";
+			}
 
-      $avatar = json_decode($userProfile['picture'],true)['url'];
+			$avatar = json_decode($userProfile['picture'],true)['url'];
 
-      $confessions = $this->getConfessionByStatus('approved');
+			$confessions = $this->getConfessionByStatus('approved');
 
-      return view('approvedConfessions',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
-    }
+			return view('approvedConfessions',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
+		}
 
-    private function getUserProfile(){
-      $userProfile = null;
+		private function getUserProfile(){
+			$userProfile = null;
 
-      try{
-        $params = "first_name,last_name,picture,email,birthday,age_range,gender";
-        $userProfile = $this->api->get('/me?fields='.$params)->getGraphUser();
-      }catch(FacebookSDKException $e){
+			try{
+				$params = "first_name,last_name,picture,email,birthday,age_range,gender";
+				$userProfile = $this->api->get('/me?fields='.$params)->getGraphUser();
+			}catch(FacebookSDKException $e){
 
-      }
+			}
 
-      return $userProfile;
-    }
+			return $userProfile;
+		}
 
-    private function getConfessionByStatus($status){
-      $confessions = Confession::where('status','=',$status)->orderBy('id','asc')->get();
-      return $confessions;
-    }
+		private function getConfessionByStatus($status){
+			$confessions = Confession::where('status','=',$status)->orderBy('id','asc')->get();
+			return $confessions;
+		}
 }

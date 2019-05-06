@@ -6,7 +6,15 @@
 
 @section('mainpage-load')
 
-<div id="loading-container">
+<div class="row" id="loading-container" style="width: 100%;height: 100%;color: black;margin:0px">
+	<div class="col-sm-2 col-lg-4"></div>
+	<div class="col-sm-8 col-lg-4" style="padding: 100px">
+		<kbd style="font-family: Nunito"><b>đang xử lý ~ chờ chút xíu :v ...</b></kbd>
+		<div class="progress">
+			<div class="indeterminate"></div>
+		</div>
+	</div>
+	<div class="col-sm-2 col-lg-4"></div>
 <!-- Add loading element here -->
 </div>
 
@@ -53,9 +61,9 @@
 				</div><br>
 			</div>
 			<!-- CONTENT TEXT Ở ĐÂY -->
-			<textarea class="materialize-textarea card grey darken-4" id="txt-area-{{ $confession->id }}" style="height:auto;color:#ffffff;display: block;padding: 10px">{{ $confession->content }}</textarea>
+			<h6><kbd style="font-family: Nunito;color: #ef5350">* có thể sửa được ↓</h6>
+			<textarea class="materialize-textarea card grey darken-4" id="txt-area-{{ $confession->id }}" style="height:auto;color:#ffffff;display: block;padding: 10px;border-radius: 5px">{{ $confession->content }}</textarea>
 		</div>
-		<hr />
 	</div>
 	@endforeach
 </div>
