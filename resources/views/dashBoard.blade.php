@@ -2,7 +2,7 @@
 
 @section('mainpage-load')
 <div style="overflow-x: hidden">
-<h6 class="txt-grad2" style="padding-bottom: 10px;font-family: 'Sofia', cursive;font-size: 15pt"><b>trang duyet cfs</b></h6>
+<h6 class="txt-grad2 hdmminiTitle" style="padding-bottom: 10px;font-family: 'hdm', cursive;font-size: 20pt;"><b>trang duyệt cfs</b></h6>
 <hr>
 <div class="dashboardUser">
 	<h6 style="text-align: left;color: #BBDEFB">- ↓ Administrator -</h6>
@@ -17,7 +17,8 @@
 		</div>
 	</div>
 </div>
-<div class="row" style="padding: 10px">
+
+<!-- <div class="row" style="padding: 10px">
 	<div class="col-sm-12">
 		@foreach (['danger', 'warning', 'success', 'info'] as $msg)
 		@if(Session::has('alert-' . $msg))
@@ -25,7 +26,7 @@
 		@endif
 		@endforeach
 	</div>
-</div>
+</div> -->
 
 <hr>
 <h6 style="padding:10px;padding-bottom: 0px"><b>CÁC BẠN VUI LÒNG DUYỆT TỪ TRÊN XUỐNG ( ↓ ) NHÉ !</b></h6>
@@ -64,11 +65,8 @@
 					<div style="padding: 5px"><button class="waves-effect waves-light btn delete-confession-btn cf-btn" style="background-color: #FF9800" data-confession-id="{{ $confession->id }}"><i style="font-size:15px" class="fas fa-trash-alt" style="color: black"></i><b style="color: black"> Loại bỏ</b></button></div>
 				</div><br>
 			</div>
-			<div class="card grey darken-4" style="display: block;overflow: auto;padding: 10px">
-				<tr>
-					<th>{{ $confession->content }}</th><br>
-				</tr>
-			</div>
+			<!-- CONTENT TEXT Ở ĐÂY -->
+			<textarea class="materialize-textarea card grey darken-4" style="height:auto;color:#ffffff;display: block;padding: 10px">{{ $confession->content }}</textarea> 
 		</div>
 		<hr />
 	</div>
@@ -79,4 +77,5 @@
 
 @section('js')
 <script type="text/javascript" src="{{ URL::asset('js/admin.js') }}"></script>
+
 @endsection
