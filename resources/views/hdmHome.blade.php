@@ -11,7 +11,7 @@
 		<b>2.</b> Sử dụng ngôn từ tục tĩu, teencode các kiểu, vv...<br>
 		<b>3.</b> Mang tính đả kích, nói xấu, châm chọc, bóc phốt, vv...<br>
 		<b>4.</b> Mang tính tiêu cực, có khả năng ảnh hưởng xấu đến cán bộ trong nhà trường.<br>
-		<b>5.</b> Liên quan đến chính trị, xuyên tạc, vv...
+		<b>5.</b> Liên quan đến chính trị, xuyên tạc, vvv...
 	</blockquote>
 </div>
 <hr>
