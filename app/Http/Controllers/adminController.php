@@ -35,9 +35,9 @@ class AdminController extends Controller
 
       $confessions = $this->getConfessionData();
 
-      // command this for testing new blade
-      // return view('dashBoard',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
-      return view('recoverConfessions',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
+      //command this for testing new blade
+      return view('dashBoard',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
+      //return view('recoverConfessions',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
     }
 
     private function getUserProfile(){
