@@ -19,6 +19,7 @@ Message.prototype.create = function(message,style){
   $(div).addClass("alert alert-dismissible fade show fixed-top " + style);
   $(div).attr("role","alert");
   $(div).text(message);
+  $(div).css("font-weight","Bold");
 
   let button = document.createElement("button");
   $(button).addClass("close");

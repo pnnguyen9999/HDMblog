@@ -1,6 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 @import url('https://fonts.googleapis.com/css?family=Sofia');
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC:700');
+@font-face {
+    font-family: hdm;
+    src: url('/fonts/SVN_Ballarea_Typeface.otf');
+}
 #control-bar{
 	-webkit-app-region:drag;
 	-webkit-touch-callout: none; /* iOS Safari */
@@ -41,9 +45,12 @@
 	.mobilePanel {
 		display: block !important;
 	}
-	.hdmmainText {
-		font-size: 25pt !important;
+	.hdmmainTitle {
+		font-size: 30pt !important;
 		letter-spacing: 0px !important;
+	}
+	.hdmminiTitle {
+		font-size: 17pt !important;
 	}
 	.mainContent {
 		width: 620px !important;
@@ -51,6 +58,9 @@
 	.dashboardUser {
 		padding-left: 20px !important;
 		text-align: center !important;
+	}
+	.hdmiconMob {
+		font-size: 10pt !important;
 	}
 	
 }
