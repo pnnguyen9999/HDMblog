@@ -53,6 +53,20 @@ class AdminController extends Controller
       return view('recoverConfessions',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
     }
 
+    public function acceptedpage(){
+      $userProfile = $this->getUserProfile();
+
+      if(!$userProfile){
+        return "Cannot get facebook profile";
+      }
+
+      $avatar = json_decode($userProfile['picture'],true)['url'];
+
+      $confessions = $this->getConfessionByStatus('approved');
+
+      return view('approvedConfessions',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
+    }
+
     private function getUserProfile(){
       $userProfile = null;
 
