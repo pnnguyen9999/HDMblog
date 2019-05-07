@@ -16,7 +16,7 @@
 		<div style="width: 100%;padding: 10px;border: #e0e0e0 dashed 2px">
 			<div class="row" style="width: 100%;padding: 5px">
 				<div class="col-sm-6" style="float: left;">
-					<h5 class="txt-grad2"><b>xoá bởi: </b></h5><br>
+					<h5 class="txt-grad2"><b>xoá bởi: {{ $confession->delete->user->name }}</b></h5><br>
 					<h6><b>{{ $confession->created_at }}</b></h6>
 					<h6><b>User: ẩn danh</b></h6>
 				</div>

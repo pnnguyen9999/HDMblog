@@ -16,12 +16,12 @@
 		<div style="width: 100%;padding: 10px;border: #e0e0e0 dashed 2px">
 			<div class="row" style="width: 100%;padding: 5px">
 				<div class="col-sm-6" style="float: left;">
-					<h5 class="txt-grad2"><b>duyệt bởi: _name</b></h5><br>
+					<h5 class="txt-grad2"><b>duyệt bởi: {{ $confession->approve->user->name }}</b></h5><br>
 					<h6><b>{{ $confession->created_at }}</b></h6>
 					<h6><b>User: ẩn danh</b></h6>
 				</div>
 				<div class="col-sm-6" style="padding-right:0px;float: right;text-align: right;">
-					<h5 class="txt-grad2"><b>#cfs123456</b></h5><br>
+					<h5 class="txt-grad2"><b>#cfs{{ $confession->approve->order }}</b></h5><br>
 				</div><br>
 			</div>
 			<!-- CONTENT TEXT Ở ĐÂY -->
