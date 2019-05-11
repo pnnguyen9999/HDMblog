@@ -39,7 +39,7 @@ class FacebookGroupService{
 		if(Auth::check() == false) return "Cannot get token";
 
 		$token = Auth::user()->social->provider_token;
-		$this->api = new Facebook(['http_client_handler' => 'stream']);
+		$this->api = new Facebook(['http_client_handler' => 'curl']);
 		$this->api->setDefaultAccessToken($token);
 	}
 

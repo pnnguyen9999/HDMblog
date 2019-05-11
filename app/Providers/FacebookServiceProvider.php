@@ -29,7 +29,7 @@ class FacebookServiceProvider extends ServiceProvider
             return new Facebook([
                 'app_id' => $config['client_id'],
                 'app_secret' => $config['client_secret'],
-                'default_graph_version' => 'v2.6',
+                'default_graph_version' => 'v2.10',
             ]);
         });
     }
