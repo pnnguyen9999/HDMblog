@@ -18,7 +18,7 @@ class AdminController extends Controller
         if(Auth::check() == false) return redirect()->to('/');
         $token = Auth::user()->social->provider_token;
         #fixed this issue by https://github.com/facebook/php-graph-sdk/issues/754
-        $fb = new Facebook(['http_client_handler' => 'stream']);
+        $fb = new Facebook(['http_client_handler' => 'curl']);
         $fb->setDefaultAccessToken($token);
         $this->api = $fb;
         return $next($request);
@@ -35,7 +35,6 @@ class AdminController extends Controller
       $avatar = json_decode($userProfile['picture'],true)['url'];
 
       $confessions = $this->getConfessionByStatus('no_approve');
-
       return view('dashBoard',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
     }
 
@@ -49,7 +48,7 @@ class AdminController extends Controller
       $avatar = json_decode($userProfile['picture'],true)['url'];
 
       $confessions = $this->getConfessionByStatus('deleted');
-
+      
       return view('recoverConfessions',['profile' => $userProfile,'avatar' => $avatar,'confessions' => $confessions]);
     }
 
