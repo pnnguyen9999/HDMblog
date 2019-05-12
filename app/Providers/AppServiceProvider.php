@@ -25,5 +25,9 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Schema::defaultStringLength(191);
+        view()->composer('layouts.main', function($view) {
+            $idRandom = rand(1,10);
+            $view->with('idRandom',$idRandom);
+        });
     }
 }
